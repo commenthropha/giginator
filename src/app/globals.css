@@ -1,27 +1,56 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #ffebc1;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar {
+  background-color: transparent !important;
+}
+
+.has-background-purple {
+  background-color: #3d0d64 !important;
+}
+
+.has-background-pink {
+  background-color: #a9088e !important;
+}
+
+.gradient,
+.gradient-text,
+.gradient-box {
+
+    /* ff 3.6+ */
+    background: -moz-linear-gradient(90deg, rgba(217, 24, 122, 1) 0%, rgba(121, 3, 162, 1) 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-linear-gradient(90deg, rgba(217, 24, 122, 1) 0%, rgba(121, 3, 162, 1) 100%);
+
+    /* opera 11.10+ */
+    background: -o-linear-gradient(90deg, rgba(217, 24, 122, 1) 0%, rgba(121, 3, 162, 1) 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7903A2', endColorstr='#D9187A', GradientType=0);
+
+    /* ie 10+ */
+    background: -ms-linear-gradient(90deg, rgba(217, 24, 122, 1) 0%, rgba(121, 3, 162, 1) 100%);
+
+    /* global 94%+ browsers support */
+    background: linear-gradient(90deg, rgba(217, 24, 122, 1) 0%, rgba(121, 3, 162, 1) 100%);
+
+}
+
+.gradient-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-box {
+    border-radius: 15px;
 }
