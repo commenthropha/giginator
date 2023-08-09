@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Hamburger from "hamburger-react";
 import Image from "next/image";
 import logo from "../logo.png"
@@ -29,6 +30,13 @@ const NavbarData = (): NavbarItems => {
   ];
 
   return { startItems, endItems };
+};
+
+const NavbarColor = () => {
+  const pathname = usePathname();
+  const color = pathname == '/' ? 'gradient' : 'has-background-purple';
+
+  return color;
 };
 
 const BurgerMenu = ({
@@ -92,7 +100,7 @@ const Navbar = () => {
   });
 
   return (
-    <nav className={`navbar ${styles.position}`}>
+    <nav className={`navbar ${styles.position} ${NavbarColor()}`}>
       <BurgerMenu
         toggled={isOpen}
         items={data.startItems.concat(data.endItems)}
