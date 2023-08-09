@@ -1,5 +1,5 @@
 import './globals.css'
-import Navbar from './components/Navbar'
+import {Navbar, Footer} from './components'
 import type { Metadata } from 'next'
 import 'bulma/css/bulma.css'
 import { Inter } from 'next/font/google'
@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
       <Navbar />
       {children}
+      <Footer />
       </body>
     </html>
   )
