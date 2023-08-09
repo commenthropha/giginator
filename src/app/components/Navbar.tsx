@@ -32,13 +32,6 @@ const NavbarData = (): NavbarItems => {
   return { startItems, endItems };
 };
 
-const NavbarColor = () => {
-  const pathname = usePathname();
-  const color = pathname == '/' ? 'gradient' : 'has-background-purple';
-
-  return color;
-};
-
 const BurgerMenu = ({
   toggled,
   items,
@@ -99,8 +92,12 @@ const Navbar = () => {
     window.addEventListener("resize", () => setOpen(false));
   });
 
+  const pathname = usePathname();
+  const color = pathname === '/' ? (isOpen ? 'has-background-purple' : 'gradient') : 'has-background-purple';
+
+
   return (
-    <nav className={`navbar ${styles.position} ${NavbarColor()}`}>
+    <nav className={`navbar ${styles.position} ${color}`}>
       <BurgerMenu
         toggled={isOpen}
         items={data.startItems.concat(data.endItems)}
