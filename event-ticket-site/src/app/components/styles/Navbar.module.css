@@ -1,0 +1,26 @@
+.burgerMenu {
+    display: none;
+    background-color: #3d0d64;
+    color: white;
+    padding: 30px;
+    position: fixed;
+    top: 52px;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 40px;
+  }
+  
+  
+  @media screen and (max-width: 1024px) {
+    .navbar-start {
+      display: none;
+    }
+  
+    .burger-menu {
+      display: flex;
+    }
+  }
+  
