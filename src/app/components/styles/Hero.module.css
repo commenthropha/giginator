@@ -11,5 +11,22 @@
 @media (max-width: 1000px) {
     .hero {
         min-height: 500px;
+        padding: 50px
+    }
+
+    .title {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+}
+@media (max-width: 600px) {
+    .hero {
+        min-height: 300px;
+        padding: 10px
+    }
+
+    .title {
+        font-size: 3rem;
+        line-height: 3rem;
     }
 }
