@@ -103,6 +103,8 @@ const Navbar = () => {
           <Image
             src={logo}
             alt="Logo"
+            width={35}
+            height = {35}
           />
         </a>
         <div className="navbar-burger">
