@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
+import Image from "next/image";
+import logo from "../logo.png"
 import styles from "./styles/Navbar.module.css";
 
 type NavbarItem = {
@@ -55,7 +57,10 @@ const BurgerMenu = ({
 const StartItems = ({ items }: { items: Array<NavbarItem> }) => (
   <>
     {items.map((item: NavbarItem) => (
-      <a key={item.title} className="navbar-item has-text-white has-text-weight-semibold">
+      <a
+        key={item.title}
+        className="navbar-item has-text-white has-text-weight-semibold"
+      >
         {item.title}
       </a>
     ))}
@@ -95,10 +100,13 @@ const Navbar = () => {
 
       <div className="navbar-brand">
         <a className="navbar-item">
-          <img alt = "Logo"></img>
+          <Image
+            src={logo}
+            alt="Logo"
+          />
         </a>
         <div className="navbar-burger">
-          <Hamburger toggled={isOpen} toggle={setOpen} color="white"/>
+          <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
         </div>
       </div>
 
