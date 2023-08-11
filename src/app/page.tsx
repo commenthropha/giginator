@@ -5,6 +5,7 @@ export default function Home() {
     <main>
       <Hero />
       <About />
+      <Events />
     </main>
   )
 }
