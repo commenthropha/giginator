@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Hamburger from "hamburger-react";
 import Image from "next/image";
-import logo from "../logo.png"
+import logo from "./logo.png"
 import styles from "./styles/Navbar.module.css";
 
 type NavbarItem = {

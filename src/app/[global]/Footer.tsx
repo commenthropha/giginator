@@ -1,4 +1,4 @@
-import Logo from "../logo-white.png"
+import Logo from "./logo-white.png"
 import Image from "next/image"
 
 const Footer = () => {

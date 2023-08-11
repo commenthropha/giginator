@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Navbar, Footer } from "./components";
+import { Navbar, Footer } from "./[global]";
 import type { Metadata } from "next";
 import "bulma/css/bulma.css";
 import { Inter } from "next/font/google";

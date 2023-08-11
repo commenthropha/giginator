@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import Link from "next/link";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -19,7 +20,7 @@ const Events = async () => {
           ))}
       </div>
       <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold p-6">
-        You can see all of our events <a className="gradient-text">here</a>
+        You can see all of our events <Link href="whats-on" className="gradient-text">here</Link>
       </h1>
     </>
   );

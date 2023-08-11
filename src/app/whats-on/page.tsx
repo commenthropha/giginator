@@ -1,4 +1,4 @@
-import Header from "../components/Header"
+import Header from "../[global]/Header"
 
 const WhatsOn = () => {
   return (
