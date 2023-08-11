@@ -18,7 +18,7 @@ const Events = async () => {
             <Card key = {event.id} {...event}/>
           ))}
       </div>
-      <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold purple p-6">
+      <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold p-6">
         You can see all of our events <a className="gradient-text">here</a>
       </h1>
     </>
