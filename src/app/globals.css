@@ -18,6 +18,12 @@ code {
   background-color: #a9088e !important;
 }
 
+.event {
+  border-radius: 30px;
+  box-shadow: 1px 1px 5px black;
+  background-color: #9c0695;
+}
+
 .gradient,
 .gradient-text,
 .gradient-box {
