@@ -93,7 +93,7 @@ const Navbar = () => {
   });
 
   const pathname = usePathname();
-  const color = pathname === '/' ? (isOpen ? 'has-background-purple' : 'gradient') : 'has-background-purple';
+  const color = pathname == '/' || '/whats-on' ? (isOpen ? 'has-background-purple' : 'gradient') : 'has-background-purple';
 
 
   return (
