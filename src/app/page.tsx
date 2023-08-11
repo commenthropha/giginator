@@ -1,6 +1,6 @@
 import { Hero, About, Events } from "./components"
 
-export default function Home() {
+const Home = () => {
   return (
     <main>
       <Hero />
@@ -9,3 +9,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default Home;
