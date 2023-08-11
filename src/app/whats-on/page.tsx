@@ -1,6 +1,8 @@
+import Header from "../components/Header"
+
 const WhatsOn = () => {
   return (
-    <div>page</div>
+    <Header title = "What's On" />
   )
 }
 

@@ -24,6 +24,10 @@ code {
   background-color: #9c0695;
 }
 
+.p-12 {
+  padding: 6rem;
+}
+
 .gradient,
 .gradient-text,
 .gradient-box {
@@ -55,4 +59,11 @@ code {
 
 .gradient-box {
     border-radius: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .p-12 {
+    padding: 3rem;
+  }
+  
 }

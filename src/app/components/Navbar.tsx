@@ -92,8 +92,10 @@ const Navbar = () => {
     window.addEventListener("resize", () => setOpen(false));
   });
 
+  const color = isOpen ? 'has-background-purple' : 'gradient';
+
   return (
-    <nav className={`navbar ${styles.position} gradient`}>
+    <nav className={`navbar ${styles.position} ${color}`}>
       <BurgerMenu
         toggled={isOpen}
         items={data.startItems.concat(data.endItems)}
