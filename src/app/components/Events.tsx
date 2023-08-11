@@ -13,7 +13,7 @@ const Events = async () => {
       </h1>
       <div className="columns m-4">
         <ul>
-          {events?.map((event) => (
+          {events?.map((event: DBEvent) => (
             <li key={event.id}>{event.name}</li>
           ))}
         </ul>
