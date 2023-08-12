@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
-import Card from "./Card";
+import Card from "../[global]/Card";
 
 const Events = async () => {
   const supabase: SupabaseClient = createServerComponentClient({ cookies });
