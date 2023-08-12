@@ -1,13 +1,15 @@
 type CardType = "standard" | "booked" | "unavailable";
 
-const CardL = (cardType: CardType, event: DBEvent) => {
+type CardProps = {
+  cardType: CardType;
+  event: DBEvent;
+}
+
+const CardL = ({cardType, event}: CardProps) => {
   switch (cardType) {
     case "standard":
       return (
         <div className="has-background-warning-light box mx-5 p-6">
-          <h2 className="subtitle is-5 is-size-6-mobile has-text-weight-semibold has-text-warning">
-            You have a ticket for this event
-          </h2>
           <h2 className="subtitle is-5 is-size-6-mobile  is-underlined">
             {event.location}
           </h2>
