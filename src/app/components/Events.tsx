@@ -6,7 +6,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Card from "../[global]/Card";
 
 const Events = async () => {
-  const supabase: SupabaseClient = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+  const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
     const {data: events} = await supabase.from("events").select().limit(4);
 
   return (
