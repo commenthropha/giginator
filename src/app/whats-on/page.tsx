@@ -8,7 +8,7 @@ const WhatsOn = async () => {
 
   const cookieStore = cookies();
   const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
-  const {data: events} = await supabase.from("events").select().limit(4);
+  const {data: events} = await supabase.from("events").select().limit(10);
 
   return (
     <main>
