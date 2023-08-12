@@ -1,3 +1,5 @@
+import Image from "next/image"
+import HeroImage from "../hero.png"
 import React from 'react'
 import styles from './styles/Hero.module.css'
 
@@ -9,6 +11,7 @@ const Hero = () => {
                 Eventful Evenings <br></br>
                 Made Easy
             </h1>
+            <Image src = {HeroImage} alt = "Hero" width={1000} height={1}/>
         </div>
     </>
   )
