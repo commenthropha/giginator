@@ -53,17 +53,17 @@ const Form = () => {
   // @ts-ignore
   const handleSubmit = (event) => {
     event.preventDefault();
-    let flag: boolean = false;
+    let invalidForm: boolean = false;
 
     for (let [key, value] of Object.entries(inputs)) {
       ClearInput(key);
       if (value == "") {
         AddInputMessage(key, "This field has been left empty.");
-        flag = true;
+        invalidForm = true;
       }
     } 
-    
-    if (flag) {
+
+    if (invalidForm) {
       return;
     }
 
