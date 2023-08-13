@@ -43,7 +43,7 @@ const Form = () => {
               </label>
               <div className="control">
                 <input
-                  name="password"
+                  name="confirm"
                   className="input"
                   type="password"
                   placeholder="Confirm Your Password"
