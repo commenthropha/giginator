@@ -1,7 +1,10 @@
+import Form from "./components/Form"
+
 const SignIn = () => {
   return (
-    <div className="gradient">
-    </div>
+    <>
+        <Form />
+    </>
   )
 }
 
