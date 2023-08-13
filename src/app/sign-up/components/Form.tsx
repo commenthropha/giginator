@@ -4,41 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./styles/Form.module.css";
 import ReactPasswordChecklist from "react-password-checklist";
-
-const ClearInput = (input: string) => {
-  const inputField = document.getElementById(`${input}Input`);
-  const helpText = document.getElementById(`help-${input}`);
-
-  inputField?.classList.remove(
-    "is-danger",
-    "has-background-danger",
-    "has-text-white"
-  );
-
-  helpText?.remove();
-};
-
-const AddInputMessage = (input: string, message: string) => {
-  const primaryDiv = document.getElementById(input);
-  const inputField = document.getElementById(`${input}Input`);
-
-  if (inputField?.classList.contains("is-danger")) {
-    // @ts-ignore
-    primaryDiv.lastChild.innerHTML = message;
-    return;
-  } else {
-    inputField?.classList.add(
-      "is-danger",
-      "has-background-danger",
-      "has-text-white"
-    );
-    const helpElement = document.createElement("p");
-    helpElement.id = `help-${input}`;
-    helpElement.classList.add("help", "has-text-white");
-    helpElement.innerHTML = message;
-    primaryDiv?.appendChild(helpElement);
-  }
-};
+import ValidateForm from "./validateForm";
 
 const Form = () => {
   const [email, setEmail] = useState("");
@@ -54,22 +20,9 @@ const Form = () => {
   // @ts-ignore
   const handleSubmit = (event) => {
     event.preventDefault();
-    let invalidForm: boolean = false;
+    const isValidForm = ValidateForm(inputs);
 
-    for (let [key, value] of Object.entries(inputs)) {
-      ClearInput(key);
-      if (value == "") {
-        AddInputMessage(key, "This field has been left empty.");
-        invalidForm = true;
-      }
-    }
-
-    if (invalidForm) {
-      return;
-    }
-
-    if (password != confirmPassword) {
-      AddInputMessage("confirmPassword", "Your passwords do not match.");
+    if (!isValidForm) {
       return;
     }
 
