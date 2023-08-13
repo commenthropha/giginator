@@ -1,43 +1,39 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styles from "./styles/Form.module.css";
 import ReactPasswordChecklist from "react-password-checklist";
 import ValidateForm from "./validateForm";
 
 const Form = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const inputs = {
-    email: email,
-    password: password,
-    confirmPassword: confirmPassword,
-  };
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
 
   // @ts-ignore
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const isValidForm = ValidateForm(inputs);
+    const isValidForm = ValidateForm({ email, password, confirmPassword });
 
     if (!isValidForm) {
-      return;
+      event.preventDefault(); // Prevent default form submission
     }
-
-    console.log("Form submitted:", email, password);
   };
 
   return (
-    <div
-      className={`is-fullheight is-flex is-justify-content-center is-align-items-center ${styles.fullHeight}`}
-    >
+    <div className={`is-fullheight is-flex is-justify-content-center is-align-items-center ${styles.fullHeight}`}>
       <div className={`center gradient-box ${styles.formContainer}`}>
         <h1 className="has-text-centered text-focus-in has-text-white title is-1 is-size-2-mobile center px-3">
           Sign Up
         </h1>
-        <form id="main" className="my-5" onSubmit={handleSubmit}>
+        <form
+          id="main"
+          className="my-5"
+          action="your-api-endpoint-here" // Set your API endpoint URL here
+          method="POST"
+          onSubmit={handleSubmit}
+        >
+
           <div id="email" className="field pt-2">
             <label htmlFor="email" className="label has-text-white">
               Email
