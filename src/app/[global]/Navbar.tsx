@@ -66,13 +66,11 @@ const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   return (
     <>
       {items.map((item: NavbarItem) => (
-        <Link
-          href={item.path}
-          key={item.title}
-          className={`${textColor} ${styles.navItem} navbar-item`}
-        >
-          {item.title}
-        </Link>
+        <p className={`navbar-item`} key={item.title} >
+          <Link href={item.path} className={`${textColor} ${styles.navItem}`}>
+            {item.title}
+          </Link>
+      </p>
       ))}
     </>
   );
@@ -84,7 +82,7 @@ const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
       <Link
         key={item.title}
         href={item.path}
-        className={`button ${/^(sign in)/i.test(item.title) ? 'is-light' : 'is-warning'} has-text-black ${styles.navItem}`}
+        className={`button ${/^(sign in)/i.test(item.title) ? 'is-light' : 'is-warning'} has-text-black`}
       >
         {item.title}
       </Link>
