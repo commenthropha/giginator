@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./styles/Form.module.css";
+import ReactPasswordChecklist from "react-password-checklist";
 
-const ClearInput = (input:string) => {
+const ClearInput = (input: string) => {
   const inputField = document.getElementById(`${input}Input`);
   const helpText = document.getElementById(`help-${input}`);
 
@@ -15,7 +16,7 @@ const ClearInput = (input:string) => {
   );
 
   helpText?.remove();
-}
+};
 
 const AddInputMessage = (input: string, message: string) => {
   const primaryDiv = document.getElementById(input);
@@ -32,9 +33,9 @@ const AddInputMessage = (input: string, message: string) => {
       "has-text-white"
     );
     const helpElement = document.createElement("p");
-    helpElement.id = `help-${input}`
+    helpElement.id = `help-${input}`;
     helpElement.classList.add("help", "has-text-white");
-    helpElement.innerHTML = message; 
+    helpElement.innerHTML = message;
     primaryDiv?.appendChild(helpElement);
   }
 };
@@ -61,7 +62,7 @@ const Form = () => {
         AddInputMessage(key, "This field has been left empty.");
         invalidForm = true;
       }
-    } 
+    }
 
     if (invalidForm) {
       return;
@@ -83,7 +84,7 @@ const Form = () => {
         <h1 className="has-text-centered text-focus-in has-text-white title is-1 is-size-2-mobile center px-3">
           Sign Up
         </h1>
-        <form id="main" onSubmit={handleSubmit}>
+        <form id="main" className="my-5" onSubmit={handleSubmit}>
           <div id="email" className="field pt-2">
             <label htmlFor="email" className="label has-text-white">
               Email
@@ -146,6 +147,13 @@ const Form = () => {
             </button>
           </div>
         </form>
+        <ReactPasswordChecklist
+          className="box has-background-warning p-5 mt-6"
+          rules={["minLength", "specialChar", "number", "capital", "match"]}
+          minLength={8}
+          value={password}
+          valueAgain={confirmPassword}
+        />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ const Form = () => {
             Sign In
           </h1>
           <form id="main" method="post">
-            <div className={`my-6 ${styles.customPadding}`}>
+            <div className= "my-5">
                 <div className="field pt-2">
                   <label htmlFor="email" className="label has-text-white">
                     Email
