@@ -10,6 +10,10 @@ const ValidateForm = (inputs: Props) => {
     }
   }
 
+  if (ValidateEmail(inputs["email"])) {
+    return false;
+  }
+
   if (ValidatePassword(inputs["password"])) {
     return false;
   }
@@ -19,6 +23,15 @@ const ValidateForm = (inputs: Props) => {
   }
 
   return true;
+};
+
+const ValidateEmail = (email: string) => {
+  if (!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email))) {
+    AddInputMessage("email", "This is not a valid email address.");
+    return true;
+  } else {
+    return false;
+  }
 };
 
 const CheckForEmptyInput = (key: string, value: string) => {
@@ -37,7 +50,10 @@ const ValidatePassword = (password: string) => {
   if (passwordRegex.test(password)) {
     return false;
   } else {
-    AddInputMessage("password", "This password doesn't fulfill the security requirements.");
+    AddInputMessage(
+      "password",
+      "This password does not fulfill the security requirements."
+    );
     return true;
   }
 };
