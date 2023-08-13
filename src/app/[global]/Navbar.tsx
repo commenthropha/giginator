@@ -46,7 +46,7 @@ const BurgerMenu = ({
         {items.map((item: NavbarItem) => (
           <Link
             key={item.title}
-            href = {item.path}
+            href={item.path}
             className="has-text-weight-semibold has-text-white"
           >
             {item.title}
@@ -66,11 +66,13 @@ const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   return (
     <>
       {items.map((item: NavbarItem) => (
-        <p className={`navbar-item`}>
-          <Link href={item.path} key={item.title} className={`${textColor} ${styles.navItem}`}>
-            {item.title}
-          </Link>
-        </p>
+        <Link
+          href={item.path}
+          key={item.title}
+          className={`${textColor} ${styles.navItem} navbar-item`}
+        >
+          {item.title}
+        </Link>
       ))}
     </>
   );
@@ -78,21 +80,15 @@ const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
 
 const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
   <>
-    {items.map((item: NavbarItem) =>
-      /^(sign in)/i.test(item.title) ? (
-        <Link
-          key={item.title}
-          href={item.path}
-          className="button is-light has-text-black ${styles.navItem}"
-        >
-          {item.title}
-        </Link>
-      ) : (
-        <Link href={item.path} className="button is-warning has-text-black ${styles.navItem}">
-          {item.title}
-        </Link>
-      )
-    )}
+    {items.map((item: NavbarItem) => (
+      <Link
+        key={item.title}
+        href={item.path}
+        className={`button ${/^(sign in)/i.test(item.title) ? 'is-light' : 'is-warning'} has-text-black ${styles.navItem}`}
+      >
+        {item.title}
+      </Link>
+    ))}
   </>
 );
 
