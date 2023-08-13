@@ -1,9 +1,11 @@
+import Form from "./components/Form"
+
 const SignUp = () => {
   return (
-    <div className="gradient">
+    <>
+        <Form />
+    </>
+  )
+}
 
-    </div>
-  );
-};
-
-export default SignUp;
+export default SignUp
