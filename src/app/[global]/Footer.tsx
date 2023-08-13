@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Footer = () => {
   return (
-    <footer className="has-background-purple primary-dark footer">
+    <footer className="has-background-purple primary-dark py-5">
     <div className=" has-text-white content has-text-centered">
       <p>
         <strong className = "has-text-white">The Giginator</strong> by Anees Haroon. The source code is licensed. The website content

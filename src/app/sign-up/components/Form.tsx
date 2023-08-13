@@ -54,7 +54,7 @@ const Form = () => {
             <div className="field my-5">
               <label className="label has-text-white">
                 {`Already have an account?`} <br />
-                <Link className="has-text-warning" href="/sign-up">
+                <Link className="has-text-warning" href="/sign-in">
                   Sign In Here
                 </Link>
               </label>
