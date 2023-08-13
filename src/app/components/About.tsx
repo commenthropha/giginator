@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const About = () => {
   return (
     <div id="about">
@@ -15,11 +17,12 @@ const About = () => {
           Register today and start exploring a world teeming with new
           opportunities.
         </p>
-        <a>
-          <button className="button has-text-weight-semibold is-warning is-medium m-3">
-            Get Started
-          </button>
-        </a>
+        <Link
+          href="/sign-up"
+          className="button has-text-weight-semibold is-warning is-medium m-3"
+        >
+          Get Started
+        </Link>
       </div>
     </div>
   );
