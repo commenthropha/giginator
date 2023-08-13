@@ -12,6 +12,10 @@
     align-items: center;
     line-height: 40px;
   }
+
+  .navItem:hover {
+    font-weight: 500;
+  }
   
   
   @media screen and (max-width: 1024px) {
