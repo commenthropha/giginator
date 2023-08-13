@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Hamburger from "hamburger-react";
 import Image from "next/image";
-import logo from "./logo.png"
+import logo from "./logo.png";
+import logoDark from "./logo-dark.png"
 import styles from "./styles/Navbar.module.css";
 
 type NavbarItem = {
@@ -19,14 +20,13 @@ type NavbarItems = {
 
 const NavbarData = (): NavbarItems => {
   const startItems: Array<NavbarItem> = [
-    { title: "Home", path: "" },
-    { title: "About", path: "" },
-    { title: "Events", path: "" },
+    { title: "Home", path: "/" },
+    { title: "Events", path: "/whats-on" },
   ];
 
   const endItems: Array<NavbarItem> = [
-    { title: "Sign Up", path: "" },
-    { title: "Log In", path: "" },
+    { title: "Sign Up", path: "/sign-up" },
+    { title: "Sign In", path: "/sign-in" },
   ];
 
   return { startItems, endItems };
@@ -55,23 +55,26 @@ const BurgerMenu = ({
   </>
 );
 
-const StartItems = ({ items }: { items: Array<NavbarItem> }) => (
-  <>
+const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
+  
+  const pathname = usePathname();
+  const textColor = pathname === "/sign-in" || pathname === "/sign-up" ? "has-text-black" : "has-text-white"
+  return (<>
     {items.map((item: NavbarItem) => (
       <a
         key={item.title}
-        className="navbar-item has-text-white has-text-weight-semibold"
+        className={`navbar-item ${textColor} has-text-weight-semibold`}
       >
         {item.title}
       </a>
     ))}
   </>
-);
+)};
 
 const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
   <>
     {items.map((item: NavbarItem) =>
-      /^log/i.test(item.title) ? (
+      /^(sign in)/i.test(item.title) ? (
         <a key={item.title} className="button is-light">
           {item.title}
         </a>
@@ -92,7 +95,15 @@ const Navbar = () => {
     window.addEventListener("resize", () => setOpen(false));
   });
 
-  const color = isOpen ? 'has-background-purple' : 'gradient';
+  const pathname = usePathname();
+
+  const image = pathname == "/sign-in" || pathname == "/sign-up" ? logoDark : logo
+
+  const color = isOpen
+    ? "has-background-purple"
+    : pathname == "/sign-in" || pathname == "/sign-up"
+    ? "has-background-beige"
+    : "gradient";
 
   return (
     <nav className={`navbar ${styles.position} ${color}`}>
@@ -103,12 +114,7 @@ const Navbar = () => {
 
       <div className="navbar-brand">
         <a className="navbar-item">
-          <Image
-            src={logo}
-            alt="Logo"
-            width={35}
-            height = {35}
-          />
+          <Image src={image} alt="Logo" width={35} height={35} />
         </a>
         <div className="navbar-burger">
           <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
