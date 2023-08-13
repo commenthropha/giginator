@@ -92,7 +92,7 @@ const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
   </>
 );
 
-const calculateColors = (isOpen: boolean) => {
+const CalculateColors = (isOpen: boolean) => {
   let image, color, hamburger;
   const pathname = usePathname();
 
@@ -117,7 +117,7 @@ const Navbar = () => {
     window.addEventListener("resize", () => setOpen(false));
   });
 
-  const { image, color, hamburger } = calculateColors(isOpen);
+  const { image, color, hamburger } = CalculateColors(isOpen);
 
   return (
     <nav className={`navbar ${styles.position} ${color}`}>
