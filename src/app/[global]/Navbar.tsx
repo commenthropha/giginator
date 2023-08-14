@@ -1,5 +1,6 @@
 "use client";
 
+import { Session } from "@supabase/auth-helpers-nextjs";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Hamburger from "hamburger-react";
@@ -19,17 +20,32 @@ type NavbarItems = {
   endItems: Array<NavbarItem>;
 };
 
-const NavbarData = (): NavbarItems => {
-  const startItems: Array<NavbarItem> = [
-    { title: "Home", path: "/" },
-    { title: "Events", path: "/whats-on" },
-  ];
 
-  const endItems: Array<NavbarItem> = [
-    { title: "Sign Up", path: "/sign-up" },
-    { title: "Sign In", path: "/sign-in" },
-  ];
+const NavbarData = (session: Session | null): NavbarItems => {
+  let startItems: Array<NavbarItem>, 
+      endItems: Array<NavbarItem>;
 
+  console.log(session);
+
+  if (session) {
+    startItems = [
+      { title: "Dashboard", path: "/" },
+      { title: "Events", path: "/whats-on" },
+    ];
+  
+    endItems = [
+      { title: "Sign Out", path: "/sign-out" },
+    ];
+  } else {
+    startItems = [
+      { title: "Home", path: "/" },
+      { title: "Events", path: "/whats-on" },
+    ];
+  
+    endItems = [
+      { title: "Sign In", path: "/sign-in" },
+    ];
+  }
   return { startItems, endItems };
 };
 
@@ -82,7 +98,7 @@ const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
       <Link
         key={item.title}
         href={item.path}
-        className={`button ${/^(sign in)/i.test(item.title) ? 'is-light' : 'is-warning'} has-text-black`}
+        className={`button ${/^(log out)/i.test(item.title) ? 'is-light' : 'is-warning'} has-text-black`}
       >
         {item.title}
       </Link>
@@ -107,8 +123,18 @@ const CalculateColors = (isOpen: boolean) => {
   return { image, color, hamburger };
 };
 
-const Navbar = () => {
-  const data = NavbarData();
+type Props = {
+  signedIn: boolean
+}
+
+const Navbar = ({
+  session,
+}: {
+  session: Session | null;
+}) => {
+  const data = NavbarData(session);
+
+  console.log(data.startItems);
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {

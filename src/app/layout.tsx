@@ -1,8 +1,10 @@
 import "./globals.css";
-import { Navbar, Footer } from "./[global]";
+import { NavbarServer, Footer } from "./[global]";
 import type { Metadata } from "next";
 import "bulma/css/bulma.css";
 import { Inter } from "next/font/google";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +17,14 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) 
+{
   return (
     <html lang="en">
       <body
         className={`${inter.className} is-flex is-flex-direction-column is-justify-content-space-between`}>
         <div>
-          <Navbar />
+          <NavbarServer />
           {children}
         </div>
         <Footer />

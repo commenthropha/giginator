@@ -18,7 +18,7 @@ const About = () => {
           opportunities.
         </p>
         <Link
-          href="/sign-up"
+          href="/sign-in"
           className="button has-text-weight-semibold is-warning is-medium m-3"
         >
           Get Started
