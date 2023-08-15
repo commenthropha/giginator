@@ -28,7 +28,7 @@ const NavbarData = (session: Session | null): NavbarItems => {
 
   if (session) {
     startItems = [
-      { title: "Dashboard", path: "/" },
+      { title: "Dashboard", path: "/dashboard" },
       { title: "Events", path: "/events" },
     ];
   
@@ -38,7 +38,7 @@ const NavbarData = (session: Session | null): NavbarItems => {
   } else {
     startItems = [
       { title: "Home", path: "/" },
-      { title: "Events", path: "/whats-on" },
+      { title: "Events", path: "/events" },
     ];
   
     endItems = [
