@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { getSession } from "../[global]"
-import Form from "./components/Form"
 
-const SignOut = async () => {
+const Dashboard = async () => {
+
   const session = await getSession();
 
   if (!session) {
@@ -10,10 +10,8 @@ const SignOut = async () => {
   }
 
   return (
-    <>
-        <Form />
-    </>
+    <div>Dashboard</div>
   )
 }
 
-export default SignOut
+export default Dashboard

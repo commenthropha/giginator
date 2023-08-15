@@ -1,7 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const checkSession = async() => {
+const getSession = async() => {
     const supabase = createServerComponentClient({ cookies });
     const {
       data: { session },
@@ -11,4 +11,4 @@ const checkSession = async() => {
     return session;
 }
 
-export default checkSession;
+export default getSession;

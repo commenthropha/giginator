@@ -20,7 +20,6 @@ type NavbarItems = {
   endItems: Array<NavbarItem>;
 };
 
-
 const NavbarData = (session: Session | null): NavbarItems => {
   let startItems: Array<NavbarItem>, 
       endItems: Array<NavbarItem>;
@@ -30,7 +29,7 @@ const NavbarData = (session: Session | null): NavbarItems => {
   if (session) {
     startItems = [
       { title: "Dashboard", path: "/" },
-      { title: "Events", path: "/whats-on" },
+      { title: "Events", path: "/events" },
     ];
   
     endItems = [

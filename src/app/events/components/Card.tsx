@@ -3,9 +3,10 @@ type CardType = "standard" | "booked" | "unavailable";
 type CardProps = {
   cardType: CardType;
   event: DBEvent;
+  text: string;
 }
 
-const CardL = ({cardType, event}: CardProps) => {
+const Card = ({cardType, event, text}: CardProps) => {
   switch (cardType) {
     case "standard":
       return (
@@ -23,7 +24,7 @@ const CardL = ({cardType, event}: CardProps) => {
           <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 is-size-6-mobile">View This Event</p>
+          <p className="mt-6 subtitle is-5 is-size-6-mobile">{text}</p>
         </div>
       );
     case "booked":
@@ -45,7 +46,7 @@ const CardL = ({cardType, event}: CardProps) => {
           <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 is-size-6-mobile">View This Event</p>
+          <p className="mt-6 subtitle is-5 is-size-6-mobile">{text}</p>
         </div>
       );
     case "unavailable":
@@ -67,10 +68,10 @@ const CardL = ({cardType, event}: CardProps) => {
           <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 is-size-6-mobile">No Tickets Remaining</p>
+          <p className="mt-6 subtitle is-5 is-size-6-mobile">{text}</p>
         </div>
       );
   }
 };
 
-export default CardL;
+export default Card;

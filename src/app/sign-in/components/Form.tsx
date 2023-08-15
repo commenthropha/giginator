@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./styles/Form.module.css";
-import Button from "../Button";
+import Button from "./Button";
 
 const Form = () => {
   return (

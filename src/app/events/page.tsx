@@ -2,9 +2,9 @@ import { cookies } from "next/headers";
 import Header from "../[global]/Header"
 import { SupabaseClient } from "@supabase/supabase-js";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import CardL from "../[global]/CardL";
+import Card from "./components/Card";
 
-const WhatsOn = async () => {
+const Events = async () => {
 
   const cookieStore = cookies();
   const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
@@ -12,14 +12,14 @@ const WhatsOn = async () => {
 
   return (
     <main>
-      <Header title = "What's On" />
+      <Header title = "Events" />
       <div className="my-6">
         {events?.map((event: DBEvent) => (
-          <CardL key={event.id} cardType="standard" event={event} />
+          <Card key={event.id} cardType="standard" event={event} text=""/>
         ))}
       </div>
     </main>
   )
 }
 
-export default WhatsOn
+export default Events
