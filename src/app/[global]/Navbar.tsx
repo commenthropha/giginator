@@ -76,7 +76,7 @@ const BurgerMenu = ({
 const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   const pathname = usePathname();
   const textColor =
-    pathname === "/sign-in" || pathname === "/sign-up"
+    pathname === "/sign-in" || pathname === "/sign-out"
       ? "has-text-black"
       : "has-text-white";
   return (
@@ -110,7 +110,7 @@ const CalculateColors = (isOpen: boolean) => {
   let image, color, hamburger;
   const pathname = usePathname();
 
-  if (pathname === "/sign-in" || pathname === "/sign-up") {
+  if (pathname === "/sign-in" || pathname === "/sign-out") {
     image = isOpen ? logo : logoDark;
     color = isOpen ? "has-background-purple" : "has-background-beige";
     hamburger = isOpen ? "white" : "black";
