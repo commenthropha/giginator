@@ -16,7 +16,7 @@ const Dashboard = async () => {
   const userEvents: DBEvent[] | null = await getUserEvents();
   const otherEvents: DBEvent[] | null = await getOtherEvents(4);
   const organisedEvents: DBEvent[] | null = await getOrganisedEvents();
-
+  
   if (!session) {
     redirect("/");
   }
@@ -39,7 +39,7 @@ const Dashboard = async () => {
           ) : (
             <div className="columns m-4">
               {organisedEvents.map((event: DBEvent) => (
-                <Card key={event.id} {...event} />
+                <Card key={event.id} event = {event} text="test" />
               ))}
             </div>
           )}
@@ -62,7 +62,7 @@ const Dashboard = async () => {
         ) : (
           <div className="columns m-4">
             {userEvents.map((event: DBEvent) => (
-              <Card key={event.id} {...event} />
+              <Card key={event.id} event = {event} text="test" />
             ))}
           </div>
         )}
@@ -85,7 +85,7 @@ const Dashboard = async () => {
         ) : (
           <div className="columns m-4">
             {otherEvents.map((event: DBEvent) => (
-              <Card key={event.id} {...event} />
+              <Card key={event.id} event = {event} text="test" />
             ))}
           </div>
         )}

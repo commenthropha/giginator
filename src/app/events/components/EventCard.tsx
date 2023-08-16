@@ -6,7 +6,7 @@ type CardProps = {
   text: string;
 }
 
-const Card = ({cardType, event, text}: CardProps) => {
+const EventCard = ({cardType, event, text}: CardProps) => {
   switch (cardType) {
     case "standard":
       return (
@@ -74,4 +74,4 @@ const Card = ({cardType, event, text}: CardProps) => {
   }
 };
 
-export default Card;
+export default EventCard;

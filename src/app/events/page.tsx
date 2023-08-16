@@ -1,6 +1,6 @@
 import Header from "../[global]/Header"
 import { SupabaseClient } from "@supabase/supabase-js";
-import Card from "./components/Card";
+import EventCard from "./components/EventCard";
 import {initialiseSupabase} from "../[queries]";
 
 const Events = async () => {
@@ -13,7 +13,7 @@ const Events = async () => {
       <Header title = "Events" />
       <div className="my-6">
         {events?.map((event: DBEvent) => (
-          <Card key={event.id} cardType="standard" event={event} text=""/>
+          <EventCard key={event.id} cardType="standard" event={event} text=""/>
         ))}
       </div>
     </main>

@@ -8,11 +8,18 @@ const getOtherEvents = async (limit: number | null) => {
   const organisedEvents = await getOrganisedEvents();
 
   if (userEvents) {
-    const eventIds = [
-      ...userEvents.map((e) => e.event_id),
-      ...((organisedEvents ?? []).map(
-        (o) => o.organised_event_id)),
-      ];
+    const eventIds = `(${userEvents
+      .map((e) => e.id)
+      .concat(
+        organisedEvents
+          ? organisedEvents.map(
+              (o) => o.id
+            )
+          : [])
+      .join(", ")})`;
+
+  console.log(eventIds);
+
 
     const { data: events } = limit
       ? await supabase
@@ -22,6 +29,7 @@ const getOtherEvents = async (limit: number | null) => {
           .limit(4)
       : await supabase.from("events").select().not("id", "in", eventIds);
 
+    console.log(events)
     return events;
   } else {
     return null;
