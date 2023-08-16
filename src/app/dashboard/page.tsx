@@ -39,7 +39,7 @@ const Dashboard = async () => {
           ) : (
             <div className="columns m-4">
               {organisedEvents.map((event: DBEvent) => (
-                <Card key={event.id} event = {event} text="test" />
+                <Card key={event.id} event = {event} text="View This Event" />
               ))}
             </div>
           )}
@@ -62,7 +62,7 @@ const Dashboard = async () => {
         ) : (
           <div className="columns m-4">
             {userEvents.map((event: DBEvent) => (
-              <Card key={event.id} event = {event} text="test" />
+              <Card key={event.id} event = {event} text="View This Event" />
             ))}
           </div>
         )}
@@ -85,7 +85,7 @@ const Dashboard = async () => {
         ) : (
           <div className="columns m-4">
             {otherEvents.map((event: DBEvent) => (
-              <Card key={event.id} event = {event} text="test" />
+              <Card key={event.id} event = {event} text="View This Event" />
             ))}
           </div>
         )}

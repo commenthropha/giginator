@@ -26,7 +26,6 @@ const getOtherEvents = async (limit: number | null) => {
           .limit(4)
       : await supabase.from("events").select().not("id", "in", eventIds);
 
-    console.log(events)
     return events;
   } else {
     return null;
