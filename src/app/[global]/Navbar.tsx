@@ -131,7 +131,6 @@ const Navbar = ({
 }) => {
   const data = NavbarData(session);
 
-  console.log(data.startItems);
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
