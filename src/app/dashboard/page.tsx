@@ -1,12 +1,13 @@
 import { redirect } from "next/navigation";
 import { Header } from "../[global]";
 import { SupabaseClient } from "@supabase/supabase-js";
-import { getSession, getUserEvents, initialiseSupabase } from "../[queries]";
+import { getSession, getUserEvents, initialiseSupabase, isUserOrganiser } from "../[queries]";
 import Card from "../[global]/Card";
 
 const Dashboard = async () => {
   const session = await getSession();
   const userEvents: DBEvent[] | null = await getUserEvents();
+  const isOrganiser: boolean = await isUserOrganiser();
 
   if (!session) {
     redirect("/");
