@@ -19,7 +19,7 @@ const Events = async () => {
       </h1>
       <div className="columns m-4">
         {events?.map((event: DBEvent) => (
-          <Card key={event.id} event={event} text="test" />
+          <Card key={event.id} event={event} text={false} />
         ))}
       </div>
       <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold p-6">

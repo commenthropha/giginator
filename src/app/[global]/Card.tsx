@@ -1,6 +1,6 @@
 type CardProps = {
   event: DBEvent,
-  text: string | null
+  text: boolean
 }
 
 const Card = ({event, text}: CardProps) => {
@@ -18,7 +18,10 @@ const Card = ({event, text}: CardProps) => {
         <h2 className="mt-2 subtitle is-size-4 is-size-5-mobile has-text-white">
           {event.duration}
         </h2>
-        <p className="is-size-5 is-underlined is-size-6-mobile mt-2 has-text-white">{text}</p>
+        {text ?
+        <p className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">View This Event</p>
+        : null
+        }
       </div>
     </div>
   );

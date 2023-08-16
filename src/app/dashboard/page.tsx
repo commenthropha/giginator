@@ -16,7 +16,9 @@ const Dashboard = async () => {
   const userEvents: DBEvent[] | null = await getUserEvents();
   const otherEvents: DBEvent[] | null = await getOtherEvents(4);
   const organisedEvents: DBEvent[] | null = await getOrganisedEvents();
-  
+
+  console.log(userEvents);
+
   if (!session) {
     redirect("/");
   }
@@ -39,7 +41,7 @@ const Dashboard = async () => {
           ) : (
             <div className="columns m-4">
               {organisedEvents.map((event: DBEvent) => (
-                <Card key={event.id} event = {event} text="View This Event" />
+                <Card key={event.id} event={event} text={true} />
               ))}
             </div>
           )}
@@ -62,7 +64,7 @@ const Dashboard = async () => {
         ) : (
           <div className="columns m-4">
             {userEvents.map((event: DBEvent) => (
-              <Card key={event.id} event = {event} text="View This Event" />
+              <Card key={event.id} event={event} text={true} />
             ))}
           </div>
         )}
@@ -84,11 +86,16 @@ const Dashboard = async () => {
           </p>
         ) : (
           <div className="columns m-4">
-            {otherEvents.map((event: DBEvent) => (
-              <Card key={event.id} event = {event} text="View This Event" />
-            ))}
+            {otherEvents.map((event: DBEvent) =>
+              event.tickets != event.capacity ? (
+                <Card key={event.id} event={event} text={true} />
+              ) : null
+            )}
           </div>
         )}
+        <h1 className="title mt-5 is-3 is-size-4-mobile has-text-weight-semibold purple px-6">
+          See all upcoming events <a className="gradient-text">here</a>
+        </h1>
       </div>
     </div>
   );
