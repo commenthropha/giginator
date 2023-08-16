@@ -72,7 +72,7 @@ const Dashboard = async () => {
 
       <div id="organised-events" className="mb-6">
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
-          Other Events
+          Upcoming Events
         </h2>
         {otherEvents === null ? (
           <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
