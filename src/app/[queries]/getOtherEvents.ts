@@ -18,9 +18,6 @@ const getOtherEvents = async (limit: number | null) => {
           : [])
       .join(", ")})`;
 
-  console.log(eventIds);
-
-
     const { data: events } = limit
       ? await supabase
           .from("events")
