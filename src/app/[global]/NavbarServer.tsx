@@ -1,5 +1,6 @@
 import React from 'react'
-import { Navbar, getSession } from '.';
+import { getSession } from "../[queries]"
+import { Navbar } from '.';
 
 const NavbarServer = async () => {
  let session = await getSession();

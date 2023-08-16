@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getSession } from "../[global]"
+import { getSession } from "../[queries]"
 import Form from "./components/Form"
 
 const SignIn = async () => {

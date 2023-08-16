@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getSession } from "./[global]";
+import { getSession } from "./[queries]";
 import { Hero, About, Events } from "./components"
 
 const Home = async () => {
