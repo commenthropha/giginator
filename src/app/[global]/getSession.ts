@@ -7,7 +7,6 @@ const getSession = async() => {
       data: { session },
     } = await supabase.auth.getSession();
 
-    console.log(session);
     return session;
 }
 

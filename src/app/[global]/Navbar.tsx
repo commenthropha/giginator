@@ -24,8 +24,6 @@ const NavbarData = (session: Session | null): NavbarItems => {
   let startItems: Array<NavbarItem>, 
       endItems: Array<NavbarItem>;
 
-  console.log(session);
-
   if (session) {
     startItems = [
       { title: "Dashboard", path: "/dashboard" },
