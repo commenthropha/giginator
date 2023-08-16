@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getSession } from "../[global]"
+import { getSession, Header } from "../[global]"
 
 const Dashboard = async () => {
 
@@ -10,7 +10,7 @@ const Dashboard = async () => {
   }
 
   return (
-    <div>Dashboard</div>
+    <Header title="Dashboard"/>
   )
 }
 
