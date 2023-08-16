@@ -67,6 +67,29 @@ const Dashboard = async () => {
           </div>
         )}
       </div>
+
+      {/* Upcoming Events that the user hasn't booked/isn't organising */}
+
+      <div id="organised-events" className="mb-6">
+        <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
+          Other Events
+        </h2>
+        {otherEvents === null ? (
+          <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
+            <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
+              {`There aren't any events that you haven't booked${
+                isOrganiser ? ` or that you aren't organising.` : "."
+              }`}
+            </p>
+          </p>
+        ) : (
+          <div className="columns m-4">
+            {otherEvents.map((event: DBEvent) => (
+              <Card key={event.id} {...event} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

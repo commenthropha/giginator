@@ -4,7 +4,6 @@ import { getOrganisedEvents, getSession, getUserEvents } from "./";
 
 const getOtherEvents = async (limit: number | null) => {
   const supabase: SupabaseClient = await initialiseSupabase();
-  const session = await getSession();
   const userEvents = await getUserEvents();
   const organisedEvents = await getOrganisedEvents();
 
