@@ -9,9 +9,11 @@ const Card = (event: DBEvent, text: string | null) => {
           {event.name}
         </h1>
       </div>
-      <h2 className="mt-2 subtitle is-5 is-size-6-mobile has-text-white">
-        {event.duration}
-      </h2>
+      <div>
+        <h2 className="mt-2 subtitle is-5 is-size-6-mobile has-text-white">
+          {event.duration}
+        </h2>
+      </div>
     </div>
   );
 };
