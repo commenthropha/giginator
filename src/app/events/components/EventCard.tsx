@@ -3,10 +3,9 @@ type CardType = "standard" | "booked" | "unavailable";
 type CardProps = {
   cardType: CardType;
   event: DBEvent;
-  text: string;
 }
 
-const EventCard = ({cardType, event, text}: CardProps) => {
+const EventCard = ({cardType, event}: CardProps) => {
   switch (cardType) {
     case "standard":
       return (
@@ -24,43 +23,40 @@ const EventCard = ({cardType, event, text}: CardProps) => {
           <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 is-size-6-mobile">{text}</p>
+          <p className="has-text-weight-semibold mt-6 subtitle is-5 is-size-6-mobile">View This Event</p>
         </div>
       );
     case "booked":
       return (
-        <div className="has-background-purple has-text-white box mx-5 p-6">
+        <div className="has-background-purple box mx-5 p-6">
           <h2 className="subtitle is-5 is-size-6-mobile has-text-weight-semibold has-text-warning">
-            You have a ticket for this event
+            You Have A Ticket For This Event
           </h2>
-          <h2 className="subtitle is-5 is-size-6-mobile is-underlined">
+          <h2 className="has-text-white subtitle is-5 is-size-6-mobile is-underlined">
             {event.location}
           </h2>
-          <h1 className="title is-4 is-size-5-mobile">
+          <h1 className="has-text-white title is-4 is-size-5-mobile">
             {event.name} <br />
-            <span className="subtitle is-5 is-size-6-mobile has-text-weight-medium has-text-white">
+            <span className="has-text-white subtitle is-5 is-size-6-mobile has-text-weight-medium has-text-white">
               {" "}
               {event.date} - {event.time}
             </span>
           </h1>
-          <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
+          <h2 className="has-text-white mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 is-size-6-mobile">{text}</p>
+          <p className="mt-6 subtitle is-5 has-text-weight-semibold is-size-6-mobile has-text-grey-lighter">View This Event</p>
         </div>
       );
     case "unavailable":
       return (
         <div className="has-background-grey-light box mx-5 p-6">
-          <h2 className="subtitle is-5 is-size-6-mobile has-text-weight-semibold has-text-warning">
-            You have a ticket for this event
-          </h2>
-          <h2 className="subtitle is-5 is-size-6-mobile  is-underlined">
+          <h2 className="subtitle is-5 is-size-6-mobile is-underlined">
             {event.location}
           </h2>
           <h1 className="title is-4 is-size-5-mobile">
             {event.name} <br />
-            <span className="subtitle is-5 is-size-6-mobile has-text-weight-medium has-text-white">
+            <span className="subtitle is-5 is-size-6-mobile has-text-weight-medium has-text-grey-medium">
               {" "}
               {event.date} - {event.time}
             </span>
@@ -68,7 +64,7 @@ const EventCard = ({cardType, event, text}: CardProps) => {
           <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 is-size-6-mobile">{text}</p>
+          <p className="mt-6 subtitle is-5 has-text-weight-semibold is-size-6-mobile">This Event Is Booked Out</p>
         </div>
       );
   }
