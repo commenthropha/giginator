@@ -13,8 +13,6 @@ const getOtherEvents = async (limit: number | null) => {
       .concat(organisedEvents ? organisedEvents.map((o) => o.id) : [])
       .join(', ')})`;
 
-    console.log(eventIds);
-
     const { data: events } = limit
       ? await supabase
           .from("events")
