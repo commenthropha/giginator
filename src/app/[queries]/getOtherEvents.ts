@@ -10,11 +10,11 @@ const getOtherEvents = async (limit: number | null) => {
 
   if (userEvents) {
     const eventIds = userEvents
-      .map((event) => event.event_id)
+      .map((e) => e.event_id)
       .concat(
         organisedEvents
           ? organisedEvents.map(
-              (organisedEvent) => organisedEvent.organised_event_id
+              (o) => o.organised_event_id
             )
           : []
       );
