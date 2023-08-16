@@ -4,12 +4,10 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import Card from "../[global]/Card";
+import { initialiseSupabase } from "../[queries]";
 
 const Events = async () => {
-  const cookieStore = cookies();
-  const supabase: SupabaseClient = createServerComponentClient({
-    cookies: () => cookieStore,
-  });
+  const supabase = await initialiseSupabase();
   const { data: events } = await supabase.from("events").select().limit(4);
 
   return (
