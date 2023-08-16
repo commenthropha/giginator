@@ -1,18 +1,23 @@
 import { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 import initialiseSupabase from "./initialiseSupabase";
-import { getSession } from "./";
+import { getOrganisedEvents, getSession, getUserEvents } from "./";
 
 const getOtherEvents = async (limit: number | null) => {
   const supabase: SupabaseClient = await initialiseSupabase();
   const session = await getSession();
-
-  const { data: userEvents } = await supabase
-    .from("event_profiles")
-    .select("event_id")
-    .eq("profile_id", session?.user.id);
+  const userEvents = await getUserEvents();
+  const organisedEvents = await getOrganisedEvents();
 
   if (userEvents) {
-    const eventIds = userEvents.map((event) => event.event_id);
+    const eventIds = userEvents
+      .map((event) => event.event_id)
+      .concat(
+        organisedEvents
+          ? organisedEvents.map(
+              (organisedEvent) => organisedEvent.organised_event_id
+            )
+          : []
+      );
 
     const { data: events } = limit
       ? await supabase
@@ -20,10 +25,7 @@ const getOtherEvents = async (limit: number | null) => {
           .select()
           .not("id", "in", eventIds)
           .limit(limit)
-      : await supabase
-          .from("events")
-          .select()
-          .not("id", "in", eventIds);
+      : await supabase.from("events").select().not("id", "in", eventIds);
 
     return events;
   } else {
