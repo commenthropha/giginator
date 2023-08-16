@@ -13,6 +13,7 @@ const Card = (event: DBEvent, text: string | null) => {
         <h2 className="mt-2 subtitle is-5 is-size-6-mobile has-text-white">
           {event.duration}
         </h2>
+        <p className="is-5 is-size-6-mobile mt-2">{text}</p>
       </div>
     </div>
   );
