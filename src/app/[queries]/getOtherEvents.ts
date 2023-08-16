@@ -8,10 +8,11 @@ const getOtherEvents = async (limit: number | null) => {
   const organisedEvents = await getOrganisedEvents();
 
   if (userEvents) {
-    const eventIds = `(${userEvents
-      .map((e) => e.id)
-      .concat(organisedEvents ? organisedEvents.map((o) => o.id) : [])
-      .join(', ')})`;
+    const eventIds = [
+      ...userEvents.map((e) => e.event_id),
+      ...((organisedEvents ?? []).map(
+        (o) => o.organised_event_id)),
+      ];
 
     const { data: events } = limit
       ? await supabase
