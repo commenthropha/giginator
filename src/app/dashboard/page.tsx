@@ -5,13 +5,16 @@ import {
   getUserEvents,
   getOrganisedEvents,
   isUserOrganiser,
+  getOtherEvents,
 } from "../[queries]";
 import Card from "../[global]/Card";
 
 const Dashboard = async () => {
   const session = await getSession();
-  const userEvents: DBEvent[] | null = await getUserEvents();
   const isOrganiser: boolean = await isUserOrganiser();
+
+  const userEvents: DBEvent[] | null = await getUserEvents();
+  const otherEvents: DBEvent[] | null = await getOtherEvents(4);
   const organisedEvents: DBEvent[] | null = await getOrganisedEvents();
 
   if (!session) {
