@@ -9,7 +9,7 @@ const isUserOrganiser = async () => {
   return await supabase
     .from("profiles")
     .select("organiser")
-    .eq("profile_id", session?.user.id);
+    .eq("id", session?.user.id);
 };
 
 export default isUserOrganiser;

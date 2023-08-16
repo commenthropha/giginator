@@ -9,11 +9,22 @@ const getOrganisedEvents = async () => {
 
   if (isOrganiser) {
     const { data: organisedEvents } = await supabase
-    .from("event_profiles")
-    .select("event_id")
-    .eq("profile_id", session?.user.id);
+      .from("event_organisers")
+      .select("organised_event_id")
+      .eq("organiser_id", session?.user.id);
 
-    return organisedEvents ? organisedEvents : null;
+    if (organisedEvents) {
+      const eventIds = organisedEvents.map((event) => event.organised_event_id);
+          
+      const { data: events } = await supabase
+        .from("events")
+        .select()
+        .in("id", eventIds);
+
+      return events;
+    } else {
+      return null;
+    }
   } else {
     return null;
   }
