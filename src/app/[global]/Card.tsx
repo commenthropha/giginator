@@ -1,4 +1,4 @@
-const Card = (event: DBEvent) => {
+const Card = (event: DBEvent, text: string | null) => {
   return (
     <div className="is-flex is-flex-direction-column is-justify-content-space-between column event m-2 p-6 event">
       <div className="mb-6">
