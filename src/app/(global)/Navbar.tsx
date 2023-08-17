@@ -10,20 +10,27 @@ import logoDark from "./logo-dark.png";
 import styles from "./styles/Navbar.module.css";
 import Link from "next/link";
 
+// Create a type Alias for each item in the Navbar
 type NavbarItem = {
+  // The text that each Navbar link should display
   title: string;
+
+  // The path to redirect to when clicked
   path: string;
 };
 
+// Create a type Alias for elements both sides of the Navbar
 type NavbarItems = {
   startItems: Array<NavbarItem>;
   endItems: Array<NavbarItem>;
 };
 
 const NavbarData = (session: Session | null): NavbarItems => {
+  // Initialise variables for allocation later
   let startItems: Array<NavbarItem>, 
       endItems: Array<NavbarItem>;
 
+  // If the user is logged in, display these Navbar items
   if (session) {
     startItems = [
       { title: "Dashboard", path: "/dashboard" },
@@ -33,7 +40,10 @@ const NavbarData = (session: Session | null): NavbarItems => {
     endItems = [
       { title: "Sign Out", path: "/sign-out" },
     ];
-  } else {
+  } 
+  
+  // Otherwise, display these items to all public users
+  else {
     startItems = [
       { title: "Home", path: "/" },
       { title: "Events", path: "/events" },
@@ -47,8 +57,8 @@ const NavbarData = (session: Session | null): NavbarItems => {
 };
 
 const BurgerMenu = ({
-  toggled,
-  items,
+  toggled, // Determines the current state of the menu
+  items, // The items to be displayed in the menu
 }: {
   toggled: boolean;
   items: NavbarItem[];
@@ -71,7 +81,10 @@ const BurgerMenu = ({
 );
 
 const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
+  // Get the current pathname (e.g. /sign-in, /dashboard)
   const pathname = usePathname();
+  
+  // Determines the colour of the Navbar text depending on the page
   const textColor =
     pathname === "/sign-in" || pathname === "/sign-out"
       ? "has-text-black"
@@ -89,13 +102,13 @@ const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   );
 };
 
-const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
+const EndItems = ({ items }: { items: Array<NavbarItem> }) => (  
   <>
     {items.map((item: NavbarItem) => (
       <Link
         key={item.title}
         href={item.path}
-        className={`button ${/^(log out)/i.test(item.title) ? 'is-light' : 'is-warning'} has-text-black`}
+        className= "button is-warning has-text-black"
       >
         {item.title}
       </Link>
@@ -104,7 +117,10 @@ const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
 );
 
 const CalculateColors = (isOpen: boolean) => {
+  // Initialise variables for allocation later
   let image, color, hamburger;
+
+  // Get the current pathname (e.g. /sign-in, /dashboard)
   const pathname = usePathname();
 
   if (pathname === "/sign-in" || pathname === "/sign-out") {
@@ -120,23 +136,25 @@ const CalculateColors = (isOpen: boolean) => {
   return { image, color, hamburger };
 };
 
-type Props = {
-  signedIn: boolean
-}
-
 const Navbar = ({
   session,
 }: {
   session: Session | null;
 }) => {
+  // Get the start items and end items based on if the user is signed in
   const data = NavbarData(session);
 
+  /* Initialises a useState hook with an initial value of false
+     to indicate that the menu should be start off as closed */
   const [isOpen, setOpen] = useState(false);
 
+  /* useEffect hook to facilitate closing the menu whenever the
+     window is resized */
   useEffect(() => {
     window.addEventListener("resize", () => setOpen(false));
   });
 
+  // Allocate these variables as the function return values
   const { image, color, hamburger } = CalculateColors(isOpen);
 
   return (
