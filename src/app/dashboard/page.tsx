@@ -35,7 +35,7 @@ const Dashboard = async () => {
           </h2>
           {organisedEvents === null ? (
             <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
-            {`You haven't organised any events yet.`}
+              {`You haven't organised any events yet.`}
             </p>
           ) : (
             <div className="columns m-4">
