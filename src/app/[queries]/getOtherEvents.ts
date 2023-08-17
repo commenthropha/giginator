@@ -1,9 +1,10 @@
-import { SupabaseClient } from "@supabase/auth-helpers-nextjs";
-import initialiseSupabase from "./initialiseSupabase";
+import { SupabaseClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { getOrganisedEvents, getSession, getUserEvents } from "./";
+import { cookies } from "next/headers";
 
 const getOtherEvents = async (limit: number | null) => {
-  const supabase: SupabaseClient = await initialiseSupabase();
+  const cookieStore = cookies();
+  const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
   const userEvents = await getUserEvents();
   const organisedEvents = await getOrganisedEvents();
 
