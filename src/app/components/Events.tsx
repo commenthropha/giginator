@@ -1,8 +1,4 @@
-import { cookies } from "next/headers";
 import Link from "next/link";
-import { SupabaseClient } from "@supabase/supabase-js";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-
 import Card from "../(global)/Card";
 import { initialiseSupabase } from "../[queries]";
 
