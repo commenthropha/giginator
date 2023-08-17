@@ -1,5 +1,5 @@
 import "./globals.css";
-import { NavbarServer, Footer } from "./(global)";
+import { Navbar, Footer } from "./(global)";
 import type { Metadata } from "next";
 import "bulma/css/bulma.css";
 import { Inter } from "next/font/google";
@@ -23,7 +23,7 @@ export default function RootLayout({
         className={`${inter.className} is-flex is-flex-direction-column is-justify-content-space-between`}
       >
         <div>
-          <NavbarServer />
+          <Navbar />
           {children}
         </div>
         <Footer />

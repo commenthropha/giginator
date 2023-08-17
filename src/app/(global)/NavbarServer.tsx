@@ -1,12 +1,16 @@
 import React from 'react'
 import { getSession } from "../[queries]"
-import { Navbar } from '.';
+import { NavbarClient } from '.';
 
+/* Need this component to serve the Navbar,
+ * since we require a parent component that
+ * is a server component to use cookies properly
+ */
 const NavbarServer = async () => {
  let session = await getSession();
 
   return (
-    <Navbar session={session}/>
+    <NavbarClient session={session}/>
   )
 }
 
