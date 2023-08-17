@@ -13,7 +13,7 @@ const Form = () => {
         Sign Out
       </h1>
       <h2 className="has-text-centered text-focus-in has-text-white title is-3 is-size-4-mobile center px-3">
-        Are you sure you'd like to sign out?
+        {`Are you sure you'd like to sign out?`}
       </h2>
       <div className="has-text-centered field is-grouped my-5">
         <SignOutButton />
