@@ -1,6 +1,5 @@
 import Image from "next/image"
 import HeroImage from "../hero.png"
-import React from 'react'
 import styles from './styles/Hero.module.css'
 
 const Hero = () => {
