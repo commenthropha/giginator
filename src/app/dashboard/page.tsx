@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { Header } from "../[global]";
+import { Header, Card } from "../(global)";
 import {
   getSession,
   getUserEvents,
@@ -7,7 +7,6 @@ import {
   isUserOrganiser,
   getOtherEvents,
 } from "../[queries]";
-import Card from "../[global]/Card";
 
 const Dashboard = async () => {
   const session = await getSession();
