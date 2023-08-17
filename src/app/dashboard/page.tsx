@@ -9,7 +9,7 @@ import {
 } from "../[queries]";
 
 const Dashboard = async () => {
-  // Wait for the supabase client to initialise
+  // Retrieve session data
   const session = await getSession();
 
   // Check if a current user is an organiser
