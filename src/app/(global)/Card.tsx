@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Create a type Alias for the Component props
 type CardProps = {
   // An event object containing all the data to display
@@ -27,9 +29,9 @@ const Card = ({ event, text }: CardProps) => {
             otherwise, don't display anthing. */}
 
         {text ? (
-          <p className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">
+          <Link href = {`events/${event.id}`}className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">
             View This Event
-          </p>
+          </Link>
         ) : null}
       </div>
     </div>
