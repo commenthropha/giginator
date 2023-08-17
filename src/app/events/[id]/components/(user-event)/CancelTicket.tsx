@@ -23,7 +23,7 @@ const CancelTicketModal = ({ title }: { title: string }) => {
                 className=" button is-text has-text-danger modal-cancel"
                 onClick={() => {}}
               >
-                Yes, I'm sure
+                {`Yes, I'm sure`}
               </button>
             </div>
             <div className="control">
