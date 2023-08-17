@@ -9,7 +9,7 @@ const UserEvent = ({ event }: { event: DBEvent }) => {
     <div>
       <div id="information" className="m-6">
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold">
-          Event Information
+          Booking Information
         </h2>
         <div className="columns is-desktop">
           <Column title={"Event Location"} content={event.location} />
@@ -41,7 +41,7 @@ const UserEvent = ({ event }: { event: DBEvent }) => {
         </button>
       </div>
       <ViewTicketModal />
-      <CancelTicketModal />
+      <CancelTicketModal title={event.name}/>
     </div>
   );
 };

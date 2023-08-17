@@ -1,6 +1,6 @@
 "use client";
 
-const BookTicketModal = () => {
+const BookTicketModal = ({title}: {title: string}) => {
   return (
     <div id="book-ticket-modal" className="modal">
       <div className="modal-background"></div>
@@ -10,8 +10,8 @@ const BookTicketModal = () => {
             Booking Confirmation
           </h3>
           <p>
-            This is to confirm your ticket for
-            <span className="is-italic">test</span>
+            This is to confirm your ticket for{` `}
+            <span className="is-italic">{title}</span>
             <br />
           </p>
           <div className="mt-4 buttons is-centered">
@@ -28,7 +28,7 @@ const BookTicketModal = () => {
                 className="button is-ghost has-text-black modal-cancel"
                 onClick={() =>
                   document
-                    .getElementById("cancel-ticket-modal")
+                    .getElementById("book-ticket-modal")
                     ?.classList.remove("is-active")
                 }
               >

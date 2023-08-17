@@ -1,6 +1,6 @@
 "use client";
 
-const CancelTicketModal = () => {
+const CancelTicketModal = ({title}: {title: string}) => {
   return (
     <div id="cancel-ticket-modal" className="modal">
       <div className="modal-background"></div>
@@ -10,8 +10,8 @@ const CancelTicketModal = () => {
             Confirmation
           </h3>
           <p>
-            Are you sure that you want to cancel your ticket for test
-            <span className="is-italic">test</span>
+            Are you sure that you want to cancel your ticket for{` `}
+            <span className="is-italic">{title}</span>
             <br />
             <span className="has-text-weight-bold">
               Once you do this action, it cannot be undone.
