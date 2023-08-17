@@ -1,5 +1,6 @@
-export {default as Footer} from "../[global]/Footer"
-export {default as Navbar} from "../[global]/Navbar"
-export {default as NavbarServer} from "../[global]/NavbarServer"
-export {default as Header} from "../[global]/Header"
+export {default as Footer} from "./Footer"
+export {default as Navbar} from "./Navbar"
+export {default as NavbarServer} from "./NavbarServer"
+export {default as Header} from "./Header"
+export {default as Card} from "./Card"
 
