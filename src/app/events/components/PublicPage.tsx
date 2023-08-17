@@ -1,10 +1,12 @@
-import {initialiseSupabase} from "../../[queries]";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { Header } from "@/app/(global)"
 import EventCard from "./EventCard"
+import { cookies } from "next/headers";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const PublicPage = async () => {
-    const supabase: SupabaseClient = await initialiseSupabase();
+  const cookieStore = cookies();
+  const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
     const {data: events} = await supabase.from("events").select();
   
   return (

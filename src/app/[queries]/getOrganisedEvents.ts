@@ -1,9 +1,11 @@
-import { SupabaseClient } from "@supabase/auth-helpers-nextjs";
-import initialiseSupabase from "./initialiseSupabase";
+import { SupabaseClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import { getSession, isUserOrganiser } from "./";
 
 const getOrganisedEvents = async () => {
-  const supabase: SupabaseClient = await initialiseSupabase();
+  const cookieStore = cookies();
+  const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
+
   const session = await getSession();
   const isOrganiser = await isUserOrganiser();
 
