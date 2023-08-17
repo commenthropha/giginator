@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type CardType = "standard" | "booked" | "unavailable";
 
 type CardProps = {
@@ -23,7 +25,7 @@ const EventCard = ({cardType, event}: CardProps) => {
           <h2 className="mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="has-text-weight-semibold mt-6 subtitle is-5 is-size-6-mobile">View This Event</p>
+          <Link href = {`events/${event.id}`} className="has-text-weight-semibold mt-6 subtitle is-5 is-size-6-mobile">View This Event</Link>
         </div>
       );
     case "booked":
@@ -45,7 +47,7 @@ const EventCard = ({cardType, event}: CardProps) => {
           <h2 className="has-text-white mt-1 subtitle is-5 is-size-6-mobile">
             {event.duration}
           </h2>
-          <p className="mt-6 subtitle is-5 has-text-weight-semibold is-size-6-mobile has-text-grey-lighter">View This Event</p>
+          <Link href = {`events/${event.id}`}  className="mt-6 subtitle is-5 has-text-weight-semibold is-size-6-mobile has-text-grey-lighter">View This Event</Link>
         </div>
       );
     case "unavailable":
