@@ -12,7 +12,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import React from "react";
-import { UserEvent, OrganisedEvent, Event } from "./components";
+import {UserEvent, OrganisedEvent, Event} from "./components";
 
 const generateStaticParams = async () => {
   // Initialise Supabase client
@@ -20,16 +20,13 @@ const generateStaticParams = async () => {
 
   const { data: events } = await supabase.from("events").select("id");
 
-  const paramsArray = events?.map(({ id }) => ({ id })) || [];
-
-  return paramsArray;
+  return events ? events.map(({ id }) => ({ params: { id } })) : [];
 };
 
 const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
-  let isUserEvent: boolean,
-    isOrganisedEvent: boolean = false;
-
-  // Initialise Supabase client
+  let isUserEvent: boolean, isOrganisedEvent: boolean = false;
+  
+    // Initialise Supabase client
   const cookieStore = cookies();
   const supabase: SupabaseClient = createServerComponentClient({
     cookies: () => cookieStore,
@@ -61,16 +58,17 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
   }
 
   return (
-    <div>
-      <Header title={event.name} />
-      {isUserEvent ? (
-        <UserEvent />
-      ) : isOrganisedEvent ? (
-        <OrganisedEvent />
-      ) : (
-        <Event />
-      )}
-    </div>
+<div>
+  <Header title={event.name} />
+  {isUserEvent ? (
+    <UserEvent />
+  ) : isOrganisedEvent ? (
+    <OrganisedEvent />
+  ) : (
+    <Event />
+  )}
+</div>
+
   );
 };
 
