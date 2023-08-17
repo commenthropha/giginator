@@ -26,8 +26,6 @@ const Dashboard = async () => {
     ? await getOrganisedEvents()
     : null;
 
-  console.log(userEvents);
-
   // If not currently logged in
   if (!session) {
     redirect("/");
