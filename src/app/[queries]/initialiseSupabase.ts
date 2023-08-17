@@ -2,8 +2,7 @@ import { SupabaseClient, createServerComponentClient } from "@supabase/auth-help
 import { cookies } from "next/headers";
 
 const initialiseSupabase = async() => {
-    const cookieStore = cookies();
-    const supabase: SupabaseClient = createServerComponentClient({ cookies: () => cookieStore });
+    const supabase: SupabaseClient = createServerComponentClient({ cookies });
 
     return supabase;
 };
