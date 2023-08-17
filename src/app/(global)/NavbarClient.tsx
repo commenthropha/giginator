@@ -35,7 +35,7 @@ const NavbarData = (session: Session | null, isOrganiser: boolean): NavbarItems 
   if (session) {
     startItems = isOrganiser ? [
       { title: "Dashboard", path: "/dashboard" },
-      { title: "Admin", path: "/admin" },
+      { title: "Organisation", path: "/organisation" },
       { title: "Events", path: "/events" },
     ] : [
       { title: "Dashboard", path: "/dashboard" },
