@@ -7,7 +7,7 @@ import { Header } from "@/app/(global)";
 import EventCard from "./EventCard";
 
 const AuthenticatedPage = async () => {
-  const isOrganiser: boolean = await isUserOrganiser();
+  const isOrganiser = await isUserOrganiser();
 
   const userEvents: DBEvent[] | null = await getUserEvents();
   const otherEvents: DBEvent[] | null = await getOtherEvents(4);
