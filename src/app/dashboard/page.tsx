@@ -9,15 +9,26 @@ import {
 } from "../[queries]";
 
 const Dashboard = async () => {
+  // Wait for the supabase client to initialise
   const session = await getSession();
+
+  // Check if a current user is an organiser
   const isOrganiser = await isUserOrganiser();
 
+  // Retrieve all user events from the database
   const userEvents: DBEvent[] | null = await getUserEvents();
+
+  // Retrieve all non-user, non-organised events from the database
   const otherEvents: DBEvent[] | null = await getOtherEvents(4);
-  const organisedEvents: DBEvent[] | null = await getOrganisedEvents();
+
+  // Retrieve all events the user has organised from the database
+  const organisedEvents: DBEvent[] | null = isOrganiser // Check is the user is an organiser first
+    ? await getOrganisedEvents()
+    : null;
 
   console.log(userEvents);
 
+  // If not currently logged in
   if (!session) {
     redirect("/");
   }
@@ -28,11 +39,19 @@ const Dashboard = async () => {
 
       {/* Organised Events */}
 
+      {/* Inline ternary operator checks if the user is an organiser 
+          to determine if this needs to be rendered at all. */}
+
       {isOrganiser ? (
         <div id="organised-events">
           <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
             Organised Events
           </h2>
+
+          {/* If there are no events that the user has organised, 
+              let them know; otherwise return all the events that 
+              they have organised as card components*/}
+
           {organisedEvents === null ? (
             <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
               {`You haven't organised any events yet.`}
@@ -52,10 +71,15 @@ const Dashboard = async () => {
 
       {/* User Events */}
 
-      <div id="organised-events">
+      <div id="booked-events">
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
           Your Events
         </h2>
+
+        {/* If there are no events that the user has booked, 
+            let them know; otherwise return all the events that 
+            they have organised as card components*/}
+
         {userEvents === null ? (
           <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
             {`You haven't booked any events yet.`}
@@ -75,6 +99,11 @@ const Dashboard = async () => {
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
           Upcoming Events
         </h2>
+
+        {/* If there are no such events that fufill the requirements, 
+            let them know; otherwise return all the events that 
+            they have organised as card components*/}
+
         {otherEvents === null ? (
           <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
             <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
