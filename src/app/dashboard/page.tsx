@@ -11,7 +11,7 @@ import Card from "../[global]/Card";
 
 const Dashboard = async () => {
   const session = await getSession();
-  const isOrganiser: boolean = await isUserOrganiser();
+  const isOrganiser = await isUserOrganiser();
 
   const userEvents: DBEvent[] | null = await getUserEvents();
   const otherEvents: DBEvent[] | null = await getOtherEvents(4);
