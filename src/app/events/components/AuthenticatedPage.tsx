@@ -1,10 +1,8 @@
 import {
   getOtherEvents,
   getUserEvents,
-  initialiseSupabase,
   isUserOrganiser,
 } from "../../[queries]";
-import { SupabaseClient } from "@supabase/supabase-js";
 import { Header } from "@/app/[global]";
 import EventCard from "./EventCard";
 
