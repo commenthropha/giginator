@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSession } from "../[queries]"
+import { getSession } from "../(queries)"
 import { NavbarClient } from '.';
 
 /* Need this component to serve the Navbar,

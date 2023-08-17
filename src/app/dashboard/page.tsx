@@ -6,7 +6,7 @@ import {
   getOrganisedEvents,
   isUserOrganiser,
   getOtherEvents,
-} from "../[queries]";
+} from "../(queries)";
 
 const Dashboard = async () => {
   // Retrieve session data

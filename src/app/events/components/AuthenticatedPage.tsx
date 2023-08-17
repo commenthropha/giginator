@@ -1,7 +1,7 @@
 import {
   getOtherEvents,
   getUserEvents,
-} from "../../[queries]";
+} from "../../(queries)";
 import { Header } from "@/app/(global)";
 import EventCard from "./EventCard";
 

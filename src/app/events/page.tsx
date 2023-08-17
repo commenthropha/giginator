@@ -1,4 +1,4 @@
-import { getSession } from "../[queries]";
+import { getSession } from "../(queries)";
 import { PublicPage, AuthenticatedPage } from "./components";
 
 const Events = async () => {

@@ -1,5 +1,5 @@
 import { SupabaseClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { getSession } from "./";
+import { getSession } from ".";
 import { cookies } from "next/headers";
 
 const getUserEvents = async () => {
