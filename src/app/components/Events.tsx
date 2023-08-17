@@ -3,7 +3,9 @@ import Card from "../(global)/Card";
 import { initialiseSupabase } from "../[queries]";
 
 const Events = async () => {
+  // Wait for the supabase client to initialise
   const supabase = await initialiseSupabase();
+  // Get 4 events from the database
   const { data: events } = await supabase.from("events").select().limit(4);
 
   return (
