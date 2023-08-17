@@ -1,6 +1,6 @@
 "use client";
 
-const CancelTicketModal = ({title}: {title: string}) => {
+const CancelTicketModal = ({ title }: { title: string }) => {
   return (
     <div id="cancel-ticket-modal" className="modal">
       <div className="modal-background"></div>
@@ -11,11 +11,11 @@ const CancelTicketModal = ({title}: {title: string}) => {
           </h3>
           <p>
             Are you sure that you want to cancel your ticket for{` `}
-            <span className="is-italic">{title}</span>
+            <span className="is-italic">{title}</span> ?
             <br />
-            <span className="has-text-weight-bold">
-              Once you do this action, it cannot be undone.
-            </span>
+          </p>
+          <p className="has-text-weight-bold mt-2">
+            Once you do this action, it cannot be undone.
           </p>
           <div className="mt-4 buttons is-centered">
             <div className="control">
