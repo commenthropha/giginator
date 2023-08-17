@@ -7,8 +7,8 @@ import { NavbarClient } from ".";
  * is a server component to use cookies properly
  */
 const NavbarServer = async () => {
-  let session = await getSession();
-  let isOrganiser = (await isUserOrganiser()) ? true : false;
+  const session = await getSession();
+  const isOrganiser = (await isUserOrganiser()) ? true : false;
 
   return <NavbarClient session={session} isOrganiser={isOrganiser} />;
 };
