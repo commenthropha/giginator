@@ -1,9 +1,13 @@
+// Create a type Alias for the Component props
 type CardProps = {
-  event: DBEvent,
-  text: boolean
-}
+  // An event object containing all the data to display
+  event: DBEvent;
 
-const Card = ({event, text}: CardProps) => {
+  // A boolean value to see if we want the "View this Event" text
+  text: boolean;
+};
+
+const Card = ({ event, text }: CardProps) => {
   return (
     <div className="is-flex is-flex-direction-column is-justify-content-space-between column event m-2 p-6 event">
       <div className="mb-6">
@@ -18,10 +22,15 @@ const Card = ({event, text}: CardProps) => {
         <h2 className="mt-2 subtitle is-size-4 is-size-5-mobile has-text-white">
           {event.duration}
         </h2>
-        {text ?
-        <p className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">View This Event</p>
-        : null
-        }
+
+        {/* If true, display the text;
+            otherwise, don't display anthing. */}
+
+        {text ? (
+          <p className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">
+            View This Event
+          </p>
+        ) : null}
       </div>
     </div>
   );
