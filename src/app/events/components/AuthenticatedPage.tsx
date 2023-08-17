@@ -3,7 +3,7 @@ import {
   getUserEvents,
   isUserOrganiser,
 } from "../../[queries]";
-import { Header } from "@/app/[global]";
+import { Header } from "@/app/(global)";
 import EventCard from "./EventCard";
 
 const AuthenticatedPage = async () => {
