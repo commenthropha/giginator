@@ -29,7 +29,7 @@ const Card = ({ event, text }: CardProps) => {
             otherwise, don't display anthing. */}
 
         {text ? (
-          <Link href = {`events/${event.id}`}className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">
+          <Link href = {`events/${event.id}`} className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">
             View This Event
           </Link>
         ) : null}
