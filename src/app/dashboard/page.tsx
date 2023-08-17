@@ -55,7 +55,7 @@ const Dashboard = async () => {
               {`You haven't organised any events yet.`}
             </p>
           ) : (
-            <div className="columns m-4">
+            <div className="columns is-desktop m-4">
               {organisedEvents.map((event: DBEvent) => (
                 <Card key={event.id} event={event} text={true} />
               ))}
@@ -83,7 +83,7 @@ const Dashboard = async () => {
             {`You haven't booked any events yet.`}
           </p>
         ) : (
-          <div className="columns m-4">
+          <div className="is-desktop columns m-4">
             {userEvents.map((event: DBEvent) => (
               <Card key={event.id} event={event} text={true} />
             ))}
@@ -111,7 +111,7 @@ const Dashboard = async () => {
             </p>
           </p>
         ) : (
-          <div className="columns m-4">
+          <div className="is-desktop columns m-4">
             {otherEvents.map((event: DBEvent) =>
               event.tickets != event.capacity ? (
                 <Card key={event.id} event={event} text={true} />
