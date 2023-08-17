@@ -3,7 +3,6 @@ import { NavbarServer, Footer } from "./[global]";
 import type { Metadata } from "next";
 import "bulma/css/bulma.css";
 import { Inter } from "next/font/google";
-import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
