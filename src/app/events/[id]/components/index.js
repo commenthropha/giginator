@@ -1,5 +1,4 @@
-export {default as UserEvent} from "./UserEvent"
-export {default as OrganisedEvent} from "./OrganisedEvent"
-export {default as Event} from "./Event"
-export {default as Column} from "./Column"
+export {default as UserEvent} from "./(user-event)/UserEvent"
+export {default as OrganisedEvent} from "./(organised-event)/OrganisedEvent"
+export {default as Event} from "./(event)/Event"
 
