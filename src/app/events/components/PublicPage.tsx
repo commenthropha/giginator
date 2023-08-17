@@ -12,7 +12,7 @@ const PublicPage = async () => {
     <Header title = "Events" />
     <div className="my-6">
       {events?.map((event: DBEvent) => (
-        <EventCard key={event.id} cardType="standard" event={event} text=""/>
+        <EventCard key={event.id} cardType="standard" event={event}/>
       ))}
     </div>
   </main>
