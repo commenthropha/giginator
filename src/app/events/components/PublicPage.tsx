@@ -1,6 +1,6 @@
 import {initialiseSupabase} from "../../[queries]";
 import { SupabaseClient } from "@supabase/supabase-js";
-import { Header } from "@/app/[global]"
+import { Header } from "@/app/(global)"
 import EventCard from "./EventCard"
 
 const PublicPage = async () => {
