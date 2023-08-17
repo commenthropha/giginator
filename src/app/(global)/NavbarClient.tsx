@@ -9,6 +9,7 @@ import logo from "./logo.png";
 import logoDark from "./logo-dark.png";
 import styles from "./styles/Navbar.module.css";
 import Link from "next/link";
+import { isUserOrganiser } from "../(queries)";
 
 // Create a type Alias for each item in the Navbar
 type NavbarItem = {
@@ -25,14 +26,18 @@ type NavbarItems = {
   endItems: Array<NavbarItem>;
 };
 
-const NavbarData = (session: Session | null): NavbarItems => {
+const NavbarData = (session: Session | null, isOrganiser: boolean): NavbarItems => {
   // Initialise variables for allocation later
   let startItems: Array<NavbarItem>, 
       endItems: Array<NavbarItem>;
 
   // If the user is logged in, display these Navbar items
   if (session) {
-    startItems = [
+    startItems = isOrganiser ? [
+      { title: "Dashboard", path: "/dashboard" },
+      { title: "Admin", path: "/admin" },
+      { title: "Events", path: "/events" },
+    ] : [
       { title: "Dashboard", path: "/dashboard" },
       { title: "Events", path: "/events" },
     ];
@@ -137,12 +142,12 @@ const CalculateColors = (isOpen: boolean) => {
 };
 
 const Navbar = ({
-  session,
+  session, isOrganiser
 }: {
-  session: Session | null;
+  session: Session | null, isOrganiser: boolean;
 }) => {
   // Get the start items and end items based on if the user is signed in
-  const data = NavbarData(session);
+  const data = NavbarData(session, isOrganiser);
 
   /* Initialises a useState hook with an initial value of false
      to indicate that the menu should be start off as closed */
