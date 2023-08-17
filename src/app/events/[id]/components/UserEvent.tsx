@@ -1,4 +1,4 @@
-import React from "react";
+import { Column } from ".";
 
 const UserEvent = ({event}: {event: DBEvent}) => {
   return (
@@ -7,27 +7,9 @@ const UserEvent = ({event}: {event: DBEvent}) => {
         Event Information
       </h2>
       <div className="columns is-desktop">
-        <div className="column">
-          <h3 className="purple subtitle is-3 is-size-4-mobile mx-6">
-            <span className="has-text-weight-semibold">Event Location:</span>
-            <br />
-            {event.location}
-          </h3>
-        </div>
-        <div className="column">
-          <h3 className="purple subtitle is-3 is-size-4-mobile mx-6">
-            <span className="has-text-weight-semibold">Event Duration:</span>
-            <br />
-            {event.duration}
-          </h3>
-        </div>
-        <div className="column">
-          <h3 className="purple subtitle is-3 is-size-4-mobile mx-6">
-            <span className="has-text-weight-semibold">Date & Time:</span>
-            <br />
-            {event.date} - {event.time}
-          </h3>
-        </div>
+        <Column title = {"Event Location"} content = {event.location} />
+        <Column title = {"Event Duration"} content = {event.duration} />
+        <Column title = {"Date & Time"} content = {`${event.duration} - ${event.time}`} />
       </div>
     </div>
   );
