@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-const Card = ({ event, text }: {event: DBEvent, text: boolean}) => {
+const Card = ({
+  event, // The event being used to render the component data
+  text, // Tells us if we want the component to have the "View This Event" text
+}: {
+  event: DBEvent;
+  text: boolean;
+}) => {
   return (
     <div className="is-flex is-flex-direction-column is-justify-content-space-between column event m-2 p-6 event">
       <div className="mb-6">
@@ -20,7 +26,10 @@ const Card = ({ event, text }: {event: DBEvent, text: boolean}) => {
             otherwise, don't display anthing. */}
 
         {text ? (
-          <Link href = {`events/${event.id}`} className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white">
+          <Link
+            href={`events/${event.id}`}
+            className="is-size-5 has-text-weight-bold is-size-6-mobile mt-2 has-text-white"
+          >
             View This Event
           </Link>
         ) : null}
