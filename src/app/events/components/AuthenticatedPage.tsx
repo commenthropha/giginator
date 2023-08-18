@@ -7,7 +7,7 @@ const AuthenticatedPage = async () => {
   const userEvents: DBEvent[] | null = await getUserEvents();
 
   // Retrieve all non-user, non-organised events from the database
-  const otherEvents: DBEvent[] | null = await getOtherEvents(4);
+  const otherEvents: DBEvent[] | null = await getOtherEvents(null);
   return (
     <main>
       <Header title="Events" />
