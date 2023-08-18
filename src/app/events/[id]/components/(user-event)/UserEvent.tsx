@@ -4,7 +4,13 @@ import CancelTicketModal from "./CancelTicket";
 import ViewTicketModal from "./ViewTicket";
 import Column from "../Column";
 
-const UserEvent = ({ event, userID }: { event: DBEvent, userID: string }) => {
+const UserEvent = ({
+  event, // The event being used to render the component data
+  userID, // The ID of the user currently signed in
+}: {
+  event: DBEvent;
+  userID: string;
+}) => {
   return (
     <div>
       <div id="information" className="m-6">
@@ -21,17 +27,21 @@ const UserEvent = ({ event, userID }: { event: DBEvent, userID: string }) => {
         </div>
       </div>
       <div className="buttons m-6 are-medium">
-        <button className="button is-warning is-light" 
-         onClick={() =>
-          document
-            .getElementById("view-ticket-modal")
-            ?.classList.add("is-active")
-        }>
+        <button
+          className="button is-warning is-light"
+          onClick={() =>
+            // Set the modal to view the ticket as active
+            document
+              .getElementById("view-ticket-modal")
+              ?.classList.add("is-active")
+          }
+        >
           View Ticket
         </button>
         <button
           className="button is-danger"
           onClick={() =>
+            // Set the modal to cancel the ticket as active
             document
               .getElementById("cancel-ticket-modal")
               ?.classList.add("is-active")
@@ -41,7 +51,11 @@ const UserEvent = ({ event, userID }: { event: DBEvent, userID: string }) => {
         </button>
       </div>
       <ViewTicketModal />
-      <CancelTicketModal title={event.name} userID = {userID} eventID = {event.id}/>
+      <CancelTicketModal
+        title={event.name}
+        userID={userID}
+        eventID={event.id}
+      />
     </div>
   );
 };
