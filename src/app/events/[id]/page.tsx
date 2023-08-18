@@ -58,11 +58,12 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
     isOrganisedEvent = organisedEventIDs.includes(Number(id));
   }
 
+  console.log(session?.user.id);
   return (
     <div>
       <Header title={event.name} />
       {isUserEvent ? (
-        <UserEvent event={event} />
+        <UserEvent event={event} userID={session?.user.id}/>
       ) : isOrganisedEvent ? (
         <OrganisedEvent event={event}/>
       ) : (

@@ -1,6 +1,23 @@
 "use client";
+import {
+  SupabaseClient,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 
-const CancelTicketModal = ({ title }: { title: string }) => {
+const cancelTicket = async (userID: string, eventID: number) => {
+  // Initialise Supabase client
+  const supabase: SupabaseClient = createClientComponentClient();
+
+  const { error } = await supabase.from("event_profiles").delete().match({
+    event_id: eventID,
+    profile_id: userID,
+  });
+};
+
+const CancelTicketModal = ({ title, userID, eventID }: { title: string, userID: string, eventID: number }) => {  
+  const router = useRouter();
+  
   return (
     <div id="cancel-ticket-modal" className="modal">
       <div className="modal-background"></div>
@@ -21,7 +38,12 @@ const CancelTicketModal = ({ title }: { title: string }) => {
             <div className="control">
               <button
                 className=" button is-text has-text-danger modal-cancel"
-                onClick={() => {}}
+                onClick={async() => {
+                  await cancelTicket(userID, eventID);
+                  router.push("/dashboard");
+                  router.refresh();
+                  } 
+                }
               >
                 {`Yes, I'm sure`}
               </button>

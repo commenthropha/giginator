@@ -4,7 +4,7 @@ import CancelTicketModal from "./CancelTicket";
 import ViewTicketModal from "./ViewTicket";
 import Column from "../Column";
 
-const UserEvent = ({ event }: { event: DBEvent }) => {
+const UserEvent = ({ event, userID }: { event: DBEvent, userID: string }) => {
   return (
     <div>
       <div id="information" className="m-6">
@@ -41,7 +41,7 @@ const UserEvent = ({ event }: { event: DBEvent }) => {
         </button>
       </div>
       <ViewTicketModal />
-      <CancelTicketModal title={event.name}/>
+      <CancelTicketModal title={event.name} userID = {userID} eventID = {event.id}/>
     </div>
   );
 };
