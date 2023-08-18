@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { Header } from "../(global)";
-import { Table } from "./components";
+import { Table, OrganisedEvents } from "./components";
 import { getOrganisedEvents, getSession, isUserOrganiser } from "../(queries)";
 
 const Organisation = async () => {
@@ -31,6 +31,7 @@ const Organisation = async () => {
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
           Organised Events
         </h2>
+        <OrganisedEvents events={organisedEvents} />
       </div>
     </div>
   );
