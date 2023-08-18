@@ -1,4 +1,5 @@
 import { Card } from "@/app/(global)";
+import Link from "next/link";
 
 const OtherEvents = ({
     isOrganiser,
@@ -35,7 +36,7 @@ const OtherEvents = ({
           </div>
         )}
         <h1 className="title mt-5 is-3 is-size-4-mobile has-text-weight-semibold purple px-6">
-          See all upcoming events <a className="gradient-text">here</a>
+          See all upcoming events <Link href ="/events" className="gradient-text">here</Link>
         </h1>
       </div>
   )
