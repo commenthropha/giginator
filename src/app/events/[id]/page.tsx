@@ -19,12 +19,18 @@ const generateStaticParams = async () => {
   // Initialise Supabase client
   const supabase: SupabaseClient = createClientComponentClient();
 
+  // Get the IDs of all events in the database
   const { data: events } = await supabase.from("events").select("id");
 
+  // Map these IDs to page parameters to statically generate routes at build time
   return events ? events.map(({ id }) => ({ params: { id } })) : [];
 };
 
-const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
+const EventPage = async ({ 
+  params: { id }  // Page parameters, where the ID is that of the event we want
+}: { 
+  params: { id: string } 
+}) => {
   let isUserEvent: boolean,
     isOrganisedEvent: boolean = false;
 
@@ -36,10 +42,10 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
 
   // Retrieve session data
   const session = await getSession();
-  let userID : string;
+  let userID: string;
 
-  if(!session) {
-    redirect("/sign-in")
+  if (!session) {
+    redirect("/sign-in");
   } else {
     userID = session.user.id;
   }
@@ -70,11 +76,11 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
     <div>
       <Header title={event.name} />
       {isUserEvent ? (
-        <UserEvent event={event} userID={userID}/>
+        <UserEvent event={event} userID={userID} />
       ) : isOrganisedEvent ? (
-        <OrganisedEvent event={event} userID={userID}/>
+        <OrganisedEvent event={event} userID={userID} />
       ) : (
-        <Event event={event} userID={userID}/>
+        <Event event={event} userID={userID} />
       )}
     </div>
   );
