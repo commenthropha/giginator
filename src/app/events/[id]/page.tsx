@@ -64,7 +64,7 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
       {isUserEvent ? (
         <UserEvent event={event} />
       ) : isOrganisedEvent ? (
-        <OrganisedEvent />
+        <OrganisedEvent event={event}/>
       ) : (
         <Event event={event}/>
       )}
