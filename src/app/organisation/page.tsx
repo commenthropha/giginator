@@ -27,7 +27,7 @@ const Organisation = async () => {
         </h2>
         <Table events={organisedEvents}/>
       </div>
-      <div className="overview">
+      <div className="organisation">
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
           Organised Events
         </h2>
