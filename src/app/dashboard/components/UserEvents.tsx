@@ -1,6 +1,10 @@
 import { Card } from "@/app/(global)";
 
-const UserEvents = ({events}: {events: DBEvent[]}) => {
+const UserEvents = ({
+  events // Events booked by the user to be displayed
+}: {
+  events: DBEvent[]
+}) => {
   return (
     <div id="booked-events">
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
