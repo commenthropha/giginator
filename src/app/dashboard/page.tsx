@@ -7,14 +7,14 @@ import {
   isUserOrganiser,
   getOtherEvents,
 } from "../(queries)";
-import {OrganisedEvents} from "./components";
+import {OrganisedEvents, UserEvents} from "./components";
 
 const Dashboard = async () => {
   // Retrieve session data
   const session = await getSession();
 
   // Check if a current user is an organiser
-  const isOrganiser = await isUserOrganiser();
+  const isOrganiser = (await isUserOrganiser()) ? true : false;
 
   // Retrieve all user events from the database
   const userEvents: DBEvent[] | null = await getUserEvents();
@@ -35,31 +35,10 @@ const Dashboard = async () => {
   return (
     <div>
       <Header title="Dashboard" />
-      <OrganisedEvents />     
+      <OrganisedEvents events={organisedEvents} isOrganiser={isOrganiser}/>     
+      <UserEvents events = {userEvents} />
 
-      {/* User Events */}
-
-      <div id="booked-events">
-        <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
-          Your Events
-        </h2>
-
-        {/* If there are no events that the user has booked, 
-            let them know; otherwise return all the events that 
-            they have organised as card components*/}
-
-        {userEvents === null ? (
-          <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
-            {`You haven't booked any events yet.`}
-          </p>
-        ) : (
-          <div className="is-desktop columns m-4">
-            {userEvents.map((event: DBEvent) => (
-              <Card key={event.id} event={event} text={true} />
-            ))}
-          </div>
-        )}
-      </div>
+      
 
       {/* Upcoming Events that the user hasn't booked/isn't organising */}
 
