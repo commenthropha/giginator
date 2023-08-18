@@ -5,7 +5,7 @@ const OrganiserTestButton = () => {
   return (
     <button className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between" style={{width: "275px"}}>
       <GrUserAdmin />
-      <p>Organiser Test Account</p>
+      <p style={{fontSize: "1.125rem"}}>Organiser Test Account</p>
     </button>
   );
 };
