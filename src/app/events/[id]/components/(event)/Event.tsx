@@ -29,6 +29,7 @@ const Event = ({
         <button
           className="button is-warning is-light"
           onClick={() =>
+            // Set the modal to book the ticket as active
             document
               .getElementById("book-ticket-modal")
               ?.classList.add("is-active")
