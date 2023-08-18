@@ -5,7 +5,7 @@ import React from "react";
 const Table = async ({events}:{events: DBEvent[] | null}) => {
   return (
     <div className="table-container">
-      <table className={`table is-fullwidth ${styles.table}`}>
+      <table className={`table ${styles.table}`}>
         <thead className="gradient">
           <tr className="is-size-5">
             <th className="has-text-white">Name</th>
