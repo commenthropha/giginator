@@ -1,3 +1,5 @@
+"use client";
+
 const UserTestButton = () => {
   return (
     <div>UButtonserTest</div>
