@@ -15,17 +15,6 @@ import React from "react";
 import { UserEvent, OrganisedEvent, Event } from "./components";
 import { redirect } from "next/navigation";
 
-const generateStaticParams = async () => {
-  // Initialise Supabase client
-  const supabase: SupabaseClient = createClientComponentClient();
-
-  // Get the IDs of all events in the database
-  const { data: events } = await supabase.from("events").select("id");
-
-  // Map these IDs to page parameters to statically generate routes at build time
-  return events ? events.map(({ id }) => ({ params: { id } })) : [];
-};
-
 const EventPage = async ({ 
   params: { id }  // Page parameters, where the ID is that of the event we want
 }: { 
@@ -90,5 +79,4 @@ const EventPage = async ({
   );
 };
 
-export { generateStaticParams };
 export default EventPage;
