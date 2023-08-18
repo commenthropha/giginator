@@ -1,6 +1,7 @@
 import { getOrganisedEvents } from "@/app/(queries)";
 import styles from "./styles/Table.module.css"
 import React from "react";
+import Link from "next/link";
 
 const Table = async ({events}:{events: DBEvent[] | null}) => {
   return (
@@ -22,7 +23,7 @@ const Table = async ({events}:{events: DBEvent[] | null}) => {
             events.map((event: DBEvent) => (
               <tr key = {event.id}>
                 <td className="has-text-weight-bold">
-                  <a className="has-text-dark">{event.name}</a>
+                  <Link href ={`/${event.id}`} className="has-text-dark">{event.name}</Link>
                 </td>
                 <td>{event.location}</td>
                 <td>{event.date}</td>
