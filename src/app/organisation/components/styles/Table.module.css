@@ -1,0 +1,7 @@
+.table {
+    border-radius: 10px;
+}
+
+.table > thead > tr, .table > tbody > tr {
+    height: 100px;
+}

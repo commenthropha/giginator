@@ -1,10 +1,11 @@
 import { getOrganisedEvents } from "@/app/(queries)";
+import styles from "./styles/Table.module.css"
 import React from "react";
 
 const Table = async ({events}:{events: DBEvent[] | null}) => {
   return (
     <div className="table-container">
-      <table className="table is-fullwidth">
+      <table className={`table is-fullwidth ${styles.table}`}>
         <thead className="gradient">
           <tr className="is-size-5">
             <th className="has-text-white">Name</th>
