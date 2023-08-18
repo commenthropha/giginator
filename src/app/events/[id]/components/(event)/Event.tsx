@@ -3,7 +3,13 @@
 import Column from "../Column";
 import BookTicketModal from "./BookTicket";
 
-const Event = ({ event, userID }: { event: DBEvent, userID: string }) => {
+const Event = ({ 
+  event, // The event being used to render the component data
+  userID, // The ID of the user currently signed in
+}: { 
+  event: DBEvent, 
+  userID: string,
+}) => {
   return (
     <div>
       <div id="information" className="m-6">
@@ -20,16 +26,18 @@ const Event = ({ event, userID }: { event: DBEvent, userID: string }) => {
         </div>
       </div>
       <div className="buttons m-6 are-medium">
-        <button className="button is-warning is-light" 
-         onClick={() =>
-          document
-            .getElementById("book-ticket-modal")
-            ?.classList.add("is-active")
-        }>
+        <button
+          className="button is-warning is-light"
+          onClick={() =>
+            document
+              .getElementById("book-ticket-modal")
+              ?.classList.add("is-active")
+          }
+        >
           Book Ticket
         </button>
       </div>
-      <BookTicketModal title={event.name} userID = {userID} eventID = {event.id}/>
+      <BookTicketModal title={event.name} userID={userID} eventID={event.id} />
     </div>
   );
 };
