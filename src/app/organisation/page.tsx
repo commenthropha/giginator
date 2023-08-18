@@ -23,7 +23,7 @@ const Organisation = async () => {
       <Header title="Organisation" />
       <div className="overview">
         <h2 className="gradient-text title is-2 is-size-3-mobile has-text-weight-semibold m-6">
-          Overview Of Your Events
+          Overview
         </h2>
         <Table events={organisedEvents}/>
       </div>
