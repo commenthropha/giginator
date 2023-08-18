@@ -74,7 +74,7 @@ const CancelEventModal = ({
                 onClick={async () => {
                   // So long as the userID is not that of the organiser test account
                   if (userID != "e214ecbf-0428-4ac9-83fe-833119fecf61") {
-                    // Wait for the Supabase client to book the ticket
+                    // Wait for the Supabase client to delete the event
                     await cancelEvent(eventID);
                     
                     // Redirect to the organisation page and refresh to force a re-render
