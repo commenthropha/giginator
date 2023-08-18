@@ -20,7 +20,7 @@ const Table = async ({events}:{events: DBEvent[] | null}) => {
         <tbody>
           {events ? (
             events.map((event: DBEvent) => (
-              <tr>
+              <tr key = {event.id}>
                 <td className="has-text-weight-bold">
                   <a className="has-text-dark">{event.name}</a>
                 </td>
