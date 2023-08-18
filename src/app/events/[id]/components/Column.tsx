@@ -1,9 +1,10 @@
-type Props = {
+const Column = ({
+  title, // The column title
+  content, // The content to display in the column
+}: {
   title: string;
   content: string;
-};
-
-const Column = ({ title, content }: Props) => {
+}) => {
   return (
     <div className="column">
       <h3 className="subtitle is-3 is-size-4-mobile mx-6">
