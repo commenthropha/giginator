@@ -16,10 +16,13 @@ const isUserOrganiser = async () => {
   const session = await getSession();
 
   // Query the database and return the user organiser status
-  return await supabase
+  const { data } = await supabase
     .from("profiles")
     .select("organiser")
-    .eq("id", session?.user.id);
+    .eq("id", session?.user.id)
+    .single();
+
+  return (data?.organiser);
 };
 
 export default isUserOrganiser;

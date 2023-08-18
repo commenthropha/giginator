@@ -16,6 +16,8 @@ const Dashboard = async () => {
   // Check if a current user is an organiser
   const isOrganiser = (await isUserOrganiser()) ? true : false;
 
+  console.log(isOrganiser);
+  
   // Retrieve all user events from the database
   const userEvents: DBEvent[] | null = await getUserEvents();
 

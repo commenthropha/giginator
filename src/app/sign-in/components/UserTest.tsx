@@ -1,13 +1,34 @@
 "use client";
-import {GrUser} from "react-icons/gr"
+
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+import { GrUser } from "react-icons/gr";
 
 const UserTestButton = () => {
-  return (
-    <button className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between" style={{width: "275px"}}>
-      <GrUser />
-      <p style={{fontSize: "1.125rem"}}>User Test Account</p>
-    </button>
-  )
-}
+  const supabase = createClientComponentClient();
+  const router = useRouter();
 
-export default UserTestButton
+  const handleSignIn = async () => {
+    await supabase.auth.signInWithPassword({
+      email: "user@test",
+      password: "test",
+    });
+  };
+
+  return (
+    <button
+      className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between"
+      style={{ width: "275px" }}
+      onClick={async() => {
+        await handleSignIn();
+        router.push("/dashboard");
+        router.refresh();
+      }}
+    >
+      <GrUser />
+      <p style={{ fontSize: "1.125rem" }}>User Test Account</p>
+    </button>
+  );
+};
+
+export default UserTestButton;
