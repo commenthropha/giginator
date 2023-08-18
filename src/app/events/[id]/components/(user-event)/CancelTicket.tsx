@@ -9,15 +9,24 @@ const cancelTicket = async (userID: string, eventID: number) => {
   // Initialise Supabase client
   const supabase: SupabaseClient = createClientComponentClient();
 
+  // Remove the ticket data from the database
   const { error } = await supabase.from("event_profiles").delete().match({
     event_id: eventID,
     profile_id: userID,
   });
 };
 
-const CancelTicketModal = ({ title, userID, eventID }: { title: string, userID: string, eventID: number }) => {  
+const CancelTicketModal = ({
+  title, // The name of the event currently being booked
+  userID, // The ID of the user currently signed in
+  eventID, // The ID of the event currently being booked
+}: {
+  title: string;
+  userID: string;
+  eventID: number;
+}) => {
   const router = useRouter();
-  
+
   return (
     <div id="cancel-ticket-modal" className="modal">
       <div className="modal-background"></div>
@@ -38,12 +47,14 @@ const CancelTicketModal = ({ title, userID, eventID }: { title: string, userID: 
             <div className="control">
               <button
                 className=" button is-text has-text-danger modal-cancel"
-                onClick={async() => {
+                onClick={async () => {
+                  // Wait for the Supabase client to delete the ticket
                   await cancelTicket(userID, eventID);
+
+                  // Redirect to the dashboard and refresh to force a re-render
                   router.push("/dashboard");
                   router.refresh();
-                  } 
-                }
+                }}
               >
                 {`Yes, I'm sure`}
               </button>
@@ -52,6 +63,7 @@ const CancelTicketModal = ({ title, userID, eventID }: { title: string, userID: 
               <button
                 className="button is-ghost has-text-black modal-cancel"
                 onClick={() =>
+                  // Set the current modal as inactive
                   document
                     .getElementById("cancel-ticket-modal")
                     ?.classList.remove("is-active")
