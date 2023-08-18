@@ -1,4 +1,5 @@
 import { Card } from "@/app/(global)";
+import Link from "next/link";
 
 const OrganisedEvents = ({
   isOrganiser,
@@ -33,7 +34,7 @@ const OrganisedEvents = ({
           </div>
         )}
         <h1 className="title mt-5 is-3 is-size-4-mobile has-text-weight-semibold purple px-6">
-          Go to the <a className="gradient-text">organiser panel</a>
+          Go to the <Link href="/organisation" className="gradient-text">organiser panel</Link>
         </h1>
       </div>
     ) : null
