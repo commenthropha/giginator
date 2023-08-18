@@ -16,7 +16,7 @@ const Event = ({ event }: { event: DBEvent }) => {
           <Column title={"Event Duration"} content={event.duration} />
           <Column
             title={"Date & Time"}
-            content={`${event.duration} - ${event.time}`}
+            content={`${event.date} - ${event.time}`}
           />
         </div>
       </div>
