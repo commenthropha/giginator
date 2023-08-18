@@ -2,7 +2,7 @@
 
 import React from "react";
 import Column from "../Column";
-import CancelTicketModal from "../(user-event)/CancelTicket";
+import CancelEventModal from "./CancelEventModal";
 
 const OrganisedEvent = ({ event }: { event: DBEvent }) => {
   return (
@@ -27,17 +27,17 @@ const OrganisedEvent = ({ event }: { event: DBEvent }) => {
       </div>
       <div className="buttons m-6 are-medium">
         <button
-          className="button is-warning is-light"
+          className="button is-danger"
           onClick={() =>
             document
-              .getElementById("book-ticket-modal")
+              .getElementById("cancel-event-modal")
               ?.classList.add("is-active")
           }
         >
-          Book Ticket
+          Cancel Event
         </button>
       </div>
-      <CancelTicketModal title={event.name} />
+      <CancelEventModal title={event.name} />
     </div>
   );
 };

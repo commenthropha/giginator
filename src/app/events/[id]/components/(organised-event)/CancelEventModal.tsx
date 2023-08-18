@@ -31,7 +31,7 @@ const CancelEventModal = ({ title }: { title: string }) => {
                 className="button is-ghost has-text-black modal-cancel"
                 onClick={() =>
                   document
-                    .getElementById("cancel-ticket-modal")
+                    .getElementById("cancel-event-modal")
                     ?.classList.remove("is-active")
                 }
               >
