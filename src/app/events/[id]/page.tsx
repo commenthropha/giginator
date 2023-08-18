@@ -13,6 +13,7 @@ import {
 import { cookies } from "next/headers";
 import React from "react";
 import { UserEvent, OrganisedEvent, Event } from "./components";
+import { redirect } from "next/navigation";
 
 const generateStaticParams = async () => {
   // Initialise Supabase client
@@ -35,6 +36,13 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
 
   // Retrieve session data
   const session = await getSession();
+  let userID : string;
+
+  if(!session) {
+    redirect("/")
+  } else {
+    userID = session.user.id;
+  }
 
   // Check if a current user is an organiser
   const isOrganiser = await isUserOrganiser();
@@ -58,16 +66,15 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
     isOrganisedEvent = organisedEventIDs.includes(Number(id));
   }
 
-  console.log(session?.user.id);
   return (
     <div>
       <Header title={event.name} />
       {isUserEvent ? (
-        <UserEvent event={event} userID={session?.user.id}/>
+        <UserEvent event={event} userID={userID}/>
       ) : isOrganisedEvent ? (
         <OrganisedEvent event={event}/>
       ) : (
-        <Event event={event}/>
+        <Event event={event} userID={userID}/>
       )}
     </div>
   );

@@ -1,10 +1,9 @@
 "use client";
 
-import CancelTicketModal from "./BookTicketModal";
 import Column from "../Column";
-import BookTicketModal from "./BookTicketModal";
+import BookTicketModal from "./BookTicket";
 
-const Event = ({ event }: { event: DBEvent }) => {
+const Event = ({ event, userID }: { event: DBEvent, userID: string }) => {
   return (
     <div>
       <div id="information" className="m-6">
@@ -30,7 +29,7 @@ const Event = ({ event }: { event: DBEvent }) => {
           Book Ticket
         </button>
       </div>
-      <BookTicketModal title= {event.name}/>
+      <BookTicketModal title={event.name} userID = {userID} eventID = {event.id}/>
     </div>
   );
 };
