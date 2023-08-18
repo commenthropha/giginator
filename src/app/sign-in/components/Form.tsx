@@ -15,11 +15,11 @@ const Form = () => {
         <Button />
       </div>
       <div className="center has-text-centered field my-5">
-        <label className="label has-text-white">
+        <label className="label has-text-white ">
           {`Don't want to authenticate with Github?`} <br></br>
         </label>
         <Link className="label has-text-warning mt-2" href="/sign-up">
-            Log In Using a Test Account
+            Log In with a User Test Account
         </Link>
       </div>
     </div>
