@@ -4,7 +4,7 @@ import React from "react";
 import Column from "../Column";
 import CancelEventModal from "./CancelEvent";
 
-const OrganisedEvent = ({ event }: { event: DBEvent }) => {
+const OrganisedEvent = ({ event, userID }: { event: DBEvent, userID: string }) => {
   return (
     <div>
       <div id="information" className="m-6">
@@ -37,7 +37,7 @@ const OrganisedEvent = ({ event }: { event: DBEvent }) => {
           Cancel Event
         </button>
       </div>
-      <CancelEventModal title={event.name} eventID = {event.id}/>
+      <CancelEventModal title={event.name} userID = {userID} eventID = {event.id}/>
     </div>
   );
 };
