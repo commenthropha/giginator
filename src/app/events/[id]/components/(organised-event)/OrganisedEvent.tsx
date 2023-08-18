@@ -4,7 +4,13 @@ import React from "react";
 import Column from "../Column";
 import CancelEventModal from "./CancelEvent";
 
-const OrganisedEvent = ({ event, userID }: { event: DBEvent, userID: string }) => {
+const OrganisedEvent = ({
+  event, // The event being used to render the component data
+  userID, // The ID of the user currently signed in
+}: {
+  event: DBEvent;
+  userID: string;
+}) => {
   return (
     <div>
       <div id="information" className="m-6">
@@ -22,13 +28,17 @@ const OrganisedEvent = ({ event, userID }: { event: DBEvent, userID: string }) =
         <div className="columns is-desktop">
           <Column title={"Tickets"} content={`${event.tickets}`} />
           <Column title={"Capacity"} content={`${event.capacity}`} />
-          <Column title={"Remaining Space"} content={`${event.capacity - event.tickets}`} />
+          <Column
+            title={"Remaining Space"}
+            content={`${event.capacity - event.tickets}`}
+          />
         </div>
       </div>
       <div className="buttons m-6 are-medium">
         <button
           className="button is-danger"
           onClick={() =>
+            // Set the modal to cancel the event as active
             document
               .getElementById("cancel-event-modal")
               ?.classList.add("is-active")
@@ -37,7 +47,7 @@ const OrganisedEvent = ({ event, userID }: { event: DBEvent, userID: string }) =
           Cancel Event
         </button>
       </div>
-      <CancelEventModal title={event.name} userID = {userID} eventID = {event.id}/>
+      <CancelEventModal title={event.name} userID={userID} eventID={event.id} />
     </div>
   );
 };
