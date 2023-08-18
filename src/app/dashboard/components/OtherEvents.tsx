@@ -2,7 +2,7 @@ import { Card } from "@/app/(global)";
 import Link from "next/link";
 
 const OtherEvents = ({
-  events, // Organised events by the user to be displayed
+  events, // Non-organised, non-booked events to be displayed
   isOrganiser, // Boolean value used to determine if the current user is an organiser
 }: {
   events: DBEvent[];
