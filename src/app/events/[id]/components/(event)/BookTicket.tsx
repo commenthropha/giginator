@@ -61,6 +61,7 @@ const BookTicketModal = ({
               <button
                 className="button is-ghost has-text-black modal-cancel"
                 onClick={() =>
+                  // Set the current modal as inactive
                   document
                     .getElementById("book-ticket-modal")
                     ?.classList.remove("is-active")
