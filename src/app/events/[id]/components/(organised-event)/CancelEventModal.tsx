@@ -10,11 +10,19 @@ const CancelEventModal = ({ title }: { title: string }) => {
             Confirmation
           </h3>
           <p>
-            Are you sure that you want to cancel your ticket for{` `}
+            Are you sure that you want to cancel {` `}
             <span className="is-italic">{title}</span> ?
             <br />
           </p>
-          <p className="has-text-weight-bold mt-2">
+          <ul className="mt-4">
+            <li className="mx-2">
+              - All allocated tickets for this event will be deleted
+            </li>
+            <li className="mx-2">
+              - You will no longer be able to access this event
+            </li>
+          </ul>
+          <p className="has-text-weight-bold mt-4">
             Once you do this action, it cannot be undone.
           </p>
           <div className="mt-4 buttons is-centered">
