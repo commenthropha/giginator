@@ -2,11 +2,11 @@ import { Card } from "@/app/(global)";
 import Link from "next/link";
 
 const OrganisedEvents = ({
-  isOrganiser,
-  events,
+  events, // Organised events by the user to be displayed
+  isOrganiser, // Boolean value used to determine if the current user is an organiser
 }: {
-  isOrganiser: boolean;
   events: DBEvent[];
+  isOrganiser: boolean;
 }) => {
   return (
     /* Inline ternary operator checks if the user is an organiser 
@@ -34,7 +34,10 @@ const OrganisedEvents = ({
           </div>
         )}
         <h1 className="title mt-6 is-3 is-size-4-mobile has-text-weight-semibold purple px-6">
-          Go to the <Link href="/organisation" className="gradient-text">organiser panel</Link>
+          Go to the{" "}
+          <Link href="/organisation" className="gradient-text">
+            organiser panel
+          </Link>
         </h1>
       </div>
     ) : null
