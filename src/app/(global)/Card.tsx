@@ -1,15 +1,6 @@
 import Link from "next/link";
 
-// Create a type Alias for the Component props
-type CardProps = {
-  // An event object containing all the data to display
-  event: DBEvent;
-
-  // A boolean value to see if we want the "View this Event" text
-  text: boolean;
-};
-
-const Card = ({ event, text }: CardProps) => {
+const Card = ({ event, text }: {event: DBEvent, text: boolean}) => {
   return (
     <div className="is-flex is-flex-direction-column is-justify-content-space-between column event m-2 p-6 event">
       <div className="mb-6">
