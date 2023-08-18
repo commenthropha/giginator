@@ -33,7 +33,9 @@ const Table = async ({events}:{events: DBEvent[] | null}) => {
               </tr>
             ))
           ) : (
-            <p>Nothing here</p>
+            <tr>
+              <td colSpan={6} className="is-size-5 is-size-6-mobile p-5">There are no organised events to display.</td>
+            </tr>
           )}
         </tbody>
       </table>
