@@ -9,6 +9,7 @@ const bookTicket = async (userID: string, eventID: number) => {
   // Initialise Supabase client
   const supabase: SupabaseClient = createClientComponentClient();
 
+  // Add the ticket data to the database
   const { error } = await supabase.from("event_profiles").insert({
     event_id: eventID,
     profile_id: userID,
@@ -16,9 +17,9 @@ const bookTicket = async (userID: string, eventID: number) => {
 };
 
 const BookTicketModal = ({
-  title,
-  userID,
-  eventID,
+  title,  // The name of the event currently being booked
+  userID, // The ID of the user currently signed in 
+  eventID, // The ID of the event currently being booked
 }: {
   title: string;
   userID: string;
@@ -44,7 +45,10 @@ const BookTicketModal = ({
               <button
                 className=" button is-text has-text-danger modal-cancel"
                 onClick={async() => {
+                  // Wait for the Supabase client to book the ticket
                   await bookTicket(userID, eventID);
+
+                  // Redirect to the dashboard and refresh to force a re-render
                   router.push("/dashboard");
                   router.refresh();
                   } 
