@@ -9,7 +9,7 @@ const Footer = () => {
         <strong className = "has-text-white">The Giginator</strong> by Anees Haroon. The source code is licensed. The website content
         is licensed <a className ='has-text-white' href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
       </p>
-      <Image src={Logo} width="200" height="60" alt="Giginator Logo" />
+      <Image src={Logo} width="125" height="40" alt="Giginator Logo" />
     </div>
   </footer>
   )
