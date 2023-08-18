@@ -23,7 +23,7 @@ const Table = async ({events}:{events: DBEvent[] | null}) => {
             events.map((event: DBEvent) => (
               <tr key = {event.id}>
                 <td className="has-text-weight-bold">
-                  <Link href ={`/${event.id}`} className="has-text-dark">{event.name}</Link>
+                  <Link href ={`/events/${event.id}`} className="has-text-dark">{event.name}</Link>
                 </td>
                 <td>{event.location}</td>
                 <td>{event.date}</td>
