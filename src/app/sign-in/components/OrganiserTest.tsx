@@ -1,9 +1,11 @@
 "use client";
+import {GrUserAdmin} from "react-icons/gr"
 
 const OrganiserTestButton = () => {
   return (
-    <button className="my-1 button is-warning" style={{width: "250px"}}>
-      Organiser Test Account
+    <button className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between" style={{width: "275px"}}>
+      <GrUserAdmin />
+      <p>Organiser Test Account</p>
     </button>
   );
 };

@@ -14,11 +14,13 @@ const Form = () => {
       <div className="has-text-centered field my-5">
         <Button />
       </div>
-      <div className="center has-text-centered field my-5">
-        <label className="label has-text-white ">
-          {`Don't want to authenticate with Github?`} <br></br>
-        </label>
+      <label className="label has-text-centered has-text-white ">
+        {`Don't want to authenticate with Github?`} <br></br>
+      </label>
+      <div className="has-text-centered field mt-3">
         <UserTestButton />
+      </div>
+      <div className="has-text-centered field">
         <OrganiserTestButton />
       </div>
     </div>

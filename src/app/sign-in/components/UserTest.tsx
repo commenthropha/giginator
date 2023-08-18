@@ -1,9 +1,11 @@
 "use client";
+import {GrUser} from "react-icons/gr"
 
 const UserTestButton = () => {
   return (
-    <button className="my-1 button is-warning" style={{width: "250px"}}>
-        User Test Account
+    <button className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between" style={{width: "275px"}}>
+      <GrUser />
+      <p>User Test Account</p>
     </button>
   )
 }
