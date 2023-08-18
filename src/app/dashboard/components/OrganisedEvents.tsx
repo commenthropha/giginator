@@ -6,7 +6,7 @@ const OrganisedEvents = ({
   events,
 }: {
   isOrganiser: boolean;
-  events: DBEvent[] | null;
+  events: DBEvent[];
 }) => {
   return (
     /* Inline ternary operator checks if the user is an organiser 
@@ -22,8 +22,8 @@ const OrganisedEvents = ({
               let them know; otherwise return all the events that 
               they have organised as card components*/}
 
-        {events === null ? (
-          <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
+        {events.length == 0 ? (
+          <p className="mx-6 px-1 is-size-4 is-size-5-mobile">
             {`You haven't organised any events yet.`}
           </p>
         ) : (
@@ -33,7 +33,7 @@ const OrganisedEvents = ({
             ))}
           </div>
         )}
-        <h1 className="title mt-5 is-3 is-size-4-mobile has-text-weight-semibold purple px-6">
+        <h1 className="title mt-6 is-3 is-size-4-mobile has-text-weight-semibold purple px-6">
           Go to the <Link href="/organisation" className="gradient-text">organiser panel</Link>
         </h1>
       </div>

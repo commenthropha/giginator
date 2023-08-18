@@ -3,7 +3,7 @@ import styles from "./styles/Table.module.css"
 import React from "react";
 import Link from "next/link";
 
-const Table = async ({events}:{events: DBEvent[] | null}) => {
+const Table = async ({events}:{events: DBEvent[]}) => {
   return (
     <div className="table-container">
       <table className={`table has-background-warning-light ${styles.table}`}>
@@ -19,7 +19,7 @@ const Table = async ({events}:{events: DBEvent[] | null}) => {
           </tr>
         </thead>
         <tbody>
-          {events ? (
+          {events.length > 0 ? (
             events.map((event: DBEvent) => (
               <tr key = {event.id}>
                 <td className="has-text-weight-bold">

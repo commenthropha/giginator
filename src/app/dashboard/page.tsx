@@ -35,9 +35,9 @@ const Dashboard = async () => {
   return (
     <div>
       <Header title="Dashboard" />
-      <OrganisedEvents events={organisedEvents} isOrganiser={isOrganiser} />
-      <UserEvents events={userEvents} />
-      <OtherEvents events={otherEvents} isOrganiser={isOrganiser} />
+      <OrganisedEvents events={organisedEvents ? organisedEvents : []} isOrganiser={isOrganiser} />
+      <UserEvents events={userEvents ? userEvents : []} />
+      <OtherEvents events={otherEvents ? otherEvents : []} isOrganiser={isOrganiser} />
     </div>
   );
 };

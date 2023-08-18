@@ -1,8 +1,8 @@
 import { EventCard } from "@/app/(global)";
 
-const OrganisedEvents = ({ events }: { events: DBEvent[] | null }) => {
-  return events === null ? (
-    <p className="mx-5 px-3 is-size-4 is-size-5-mobile">
+const OrganisedEvents = ({ events }: { events: DBEvent[] }) => {
+  return events.length == 0 ? (
+    <p className="mx-6 px-1 is-size-5 is-size-6-mobile">
       {`You haven't organised any events yet.`}
     </p>
   ) : (
