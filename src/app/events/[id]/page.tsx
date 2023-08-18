@@ -39,7 +39,7 @@ const EventPage = async ({ params: { id } }: { params: { id: string } }) => {
   let userID : string;
 
   if(!session) {
-    redirect("/")
+    redirect("/sign-in")
   } else {
     userID = session.user.id;
   }
