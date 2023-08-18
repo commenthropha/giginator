@@ -142,9 +142,11 @@ const CalculateColors = (isOpen: boolean) => {
 };
 
 const Navbar = ({
-  session, isOrganiser
+  session,  // Data relating to the current application session
+  isOrganiser,  //Boolean value used to check if the current user is an organiser
 }: {
-  session: Session | null, isOrganiser: boolean;
+  session: Session | null,
+  isOrganiser: boolean,
 }) => {
   // Get the start items and end items based on if the user is signed in
   const data = NavbarData(session, isOrganiser);
