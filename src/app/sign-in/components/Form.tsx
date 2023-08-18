@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./styles/Form.module.css";
-import Button from "./Button";
+import { Button, OrganiserTestButton, UserTestButton } from ".";
 
 const Form = () => {
   return (
@@ -18,9 +18,8 @@ const Form = () => {
         <label className="label has-text-white ">
           {`Don't want to authenticate with Github?`} <br></br>
         </label>
-        <Link className="label has-text-warning mt-2" href="/sign-up">
-            Log In with a User Test Account
-        </Link>
+        <UserTestButton />
+        <OrganiserTestButton />
       </div>
     </div>
   );
