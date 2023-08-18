@@ -17,7 +17,7 @@ const EventCard = ({cardType, event}: CardProps) => {
           </h2>
           <h1 className="title is-4 is-size-5-mobile">
             {event.name} <br />
-            <span className="subtitle is-5 is-size-6-mobile has-text-weight-medium has-text-white">
+            <span className="subtitle is-5 is-size-6-mobile has-text-weight-medium">
               {" "}
               {event.date} - {event.time}
             </span>
