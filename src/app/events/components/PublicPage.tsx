@@ -1,6 +1,5 @@
 import { SupabaseClient } from "@supabase/supabase-js";
-import { Header } from "@/app/(global)"
-import EventCard from "./EventCard"
+import { Header, EventCard } from "@/app/(global)"
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 

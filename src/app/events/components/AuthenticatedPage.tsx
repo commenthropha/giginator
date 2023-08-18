@@ -1,6 +1,6 @@
 import { getOtherEvents, getUserEvents } from "../../(queries)";
 import { Header } from "@/app/(global)";
-import EventCard from "./EventCard";
+import EventCard from "../../(global)/EventCard";
 
 const AuthenticatedPage = async () => {
   // Retrieve all user events from the database
