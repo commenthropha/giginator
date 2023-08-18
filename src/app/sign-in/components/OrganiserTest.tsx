@@ -2,8 +2,10 @@
 
 const OrganiserTestButton = () => {
   return (
-    <div>OrganiserTest</div>
-  )
-}
+    <button className="my-1 button is-warning" style={{width: "250px"}}>
+      Organiser Test Account
+    </button>
+  );
+};
 
-export default OrganiserTestButton
+export default OrganiserTestButton;
