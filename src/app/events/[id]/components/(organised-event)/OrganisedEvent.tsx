@@ -2,7 +2,7 @@
 
 import React from "react";
 import Column from "../Column";
-import CancelEventModal from "./CancelEventModal";
+import CancelEventModal from "./CancelEvent";
 
 const OrganisedEvent = ({ event }: { event: DBEvent }) => {
   return (
@@ -37,7 +37,7 @@ const OrganisedEvent = ({ event }: { event: DBEvent }) => {
           Cancel Event
         </button>
       </div>
-      <CancelEventModal title={event.name} />
+      <CancelEventModal title={event.name} eventID = {event.id}/>
     </div>
   );
 };

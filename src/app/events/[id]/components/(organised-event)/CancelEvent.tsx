@@ -1,6 +1,22 @@
 "use client";
+import {
+  SupabaseClient,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 
-const CancelEventModal = ({ title }: { title: string }) => {
+const cancelEvent = async (eventID: number) => {
+  // Initialise Supabase client
+  const supabase: SupabaseClient = createClientComponentClient();
+
+  const { error } = await supabase.from("events").delete().match({
+    id: eventID,
+  });
+};
+
+const CancelEventModal = ({ title, eventID }: { title: string, eventID: number }) => {
+  const router = useRouter();
+
   return (
     <div id="cancel-event-modal" className="modal">
       <div className="modal-background"></div>
@@ -29,7 +45,11 @@ const CancelEventModal = ({ title }: { title: string }) => {
             <div className="control">
               <button
                 className=" button is-text has-text-danger modal-cancel"
-                onClick={() => {}}
+                onClick={async() => {
+                  await cancelEvent(eventID);
+                  router.push("/organisation");
+                  router.refresh();
+                }}
               >
                 {`Yes, I'm sure`}
               </button>
