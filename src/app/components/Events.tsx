@@ -23,7 +23,7 @@ const Events = async () => {
       </div>
       <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold p-6">
         You can see all of our events{" "}
-        <Link href="whats-on" className="gradient-text">
+        <Link href="/events" className="gradient-text">
           here
         </Link>
       </h1>
