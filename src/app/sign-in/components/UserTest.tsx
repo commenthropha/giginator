@@ -19,7 +19,7 @@ const UserTestButton = () => {
     <button
       className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between"
       style={{ width: "275px" }}
-      onClick={async() => {
+      onClick={async () => {
         await handleSignIn();
         router.push("/dashboard");
         router.refresh();

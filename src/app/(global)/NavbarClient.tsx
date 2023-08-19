@@ -26,37 +26,37 @@ type NavbarItems = {
   endItems: Array<NavbarItem>;
 };
 
-const NavbarData = (session: Session | null, isOrganiser: boolean): NavbarItems => {
+const NavbarData = (
+  session: Session | null,
+  isOrganiser: boolean
+): NavbarItems => {
   // Initialise variables for allocation later
-  let startItems: Array<NavbarItem>, 
-      endItems: Array<NavbarItem>;
+  let startItems: Array<NavbarItem>, endItems: Array<NavbarItem>;
 
   // If the user is logged in, display these Navbar items
   if (session) {
-    startItems = isOrganiser ? [
-      { title: "Dashboard", path: "/dashboard" },
-      { title: "Organisation", path: "/organisation" },
-      { title: "Events", path: "/events" },
-    ] : [
-      { title: "Dashboard", path: "/dashboard" },
-      { title: "Events", path: "/events" },
-    ];
-  
-    endItems = [
-      { title: "Sign Out", path: "/sign-out" },
-    ];
-  } 
-  
+    startItems = isOrganiser
+      ? [
+          { title: "Dashboard", path: "/dashboard" },
+          { title: "Organisation", path: "/organisation" },
+          { title: "Events", path: "/events" },
+        ]
+      : [
+          { title: "Dashboard", path: "/dashboard" },
+          { title: "Events", path: "/events" },
+        ];
+
+    endItems = [{ title: "Sign Out", path: "/sign-out" }];
+  }
+
   // Otherwise, display these items to all public users
   else {
     startItems = [
       { title: "Home", path: "/" },
       { title: "Events", path: "/events" },
     ];
-  
-    endItems = [
-      { title: "Sign In", path: "/sign-in" },
-    ];
+
+    endItems = [{ title: "Sign In", path: "/sign-in" }];
   }
   return { startItems, endItems };
 };
@@ -88,7 +88,7 @@ const BurgerMenu = ({
 const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   // Get the current pathname (e.g. /sign-in, /dashboard)
   const pathname = usePathname();
-  
+
   // Determines the colour of the Navbar text depending on the page
   const textColor =
     pathname === "/sign-in" || pathname === "/sign-out"
@@ -97,23 +97,23 @@ const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   return (
     <>
       {items.map((item: NavbarItem) => (
-        <p className={`navbar-item`} key={item.title} >
+        <p className={`navbar-item`} key={item.title}>
           <Link href={item.path} className={`${textColor} ${styles.navItem}`}>
             {item.title}
           </Link>
-      </p>
+        </p>
       ))}
     </>
   );
 };
 
-const EndItems = ({ items }: { items: Array<NavbarItem> }) => (  
+const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
   <>
     {items.map((item: NavbarItem) => (
       <Link
         key={item.title}
         href={item.path}
-        className= "button is-warning has-text-black"
+        className="button is-warning has-text-black"
       >
         {item.title}
       </Link>
@@ -142,11 +142,11 @@ const CalculateColors = (isOpen: boolean) => {
 };
 
 const Navbar = ({
-  session,  // Data relating to the current application session
-  isOrganiser,  //Boolean value used to check if the current user is an organiser
+  session, // Data relating to the current application session
+  isOrganiser, //Boolean value used to check if the current user is an organiser
 }: {
-  session: Session | null,
-  isOrganiser: boolean,
+  session: Session | null;
+  isOrganiser: boolean;
 }) => {
   // Get the start items and end items based on if the user is signed in
   const data = NavbarData(session, isOrganiser);

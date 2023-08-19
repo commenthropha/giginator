@@ -1,9 +1,9 @@
 import { getOrganisedEvents } from "@/app/(queries)";
-import styles from "./styles/Table.module.css"
+import styles from "./styles/Table.module.css";
 import React from "react";
 import Link from "next/link";
 
-const Table = async ({events}:{events: DBEvent[]}) => {
+const Table = async ({ events }: { events: DBEvent[] }) => {
   return (
     <div className="table-container">
       <table className={`table has-background-warning-light ${styles.table}`}>
@@ -21,9 +21,11 @@ const Table = async ({events}:{events: DBEvent[]}) => {
         <tbody>
           {events.length > 0 ? (
             events.map((event: DBEvent) => (
-              <tr key = {event.id}>
+              <tr key={event.id}>
                 <td className="has-text-weight-bold">
-                  <Link href ={`/events/${event.id}`} className="has-text-dark">{event.name}</Link>
+                  <Link href={`/events/${event.id}`} className="has-text-dark">
+                    {event.name}
+                  </Link>
                 </td>
                 <td>{event.location}</td>
                 <td>{event.date}</td>
@@ -35,7 +37,9 @@ const Table = async ({events}:{events: DBEvent[]}) => {
             ))
           ) : (
             <tr>
-              <td colSpan={6} className="is-size-5 is-size-6-mobile p-5">There are no organised events to display.</td>
+              <td colSpan={6} className="is-size-5 is-size-6-mobile p-5">
+                There are no organised events to display.
+              </td>
             </tr>
           )}
         </tbody>

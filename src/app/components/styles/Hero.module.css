@@ -1,41 +1,41 @@
 .hero {
-    min-height: 700px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 100px 100px 0 100px;
+  min-height: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 100px 100px 0 100px;
 }
 
 .title {
-    font-size: 5rem;
-    line-height: 5rem;
+  font-size: 5rem;
+  line-height: 5rem;
 }
 
 @media (max-width: 1200px) {
-    .hero {
-        flex-direction: column;
-    }
+  .hero {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 1000px) {
-    .hero {
-        min-height: 500px;
-        padding: 50px 50px 0 50px;
-    }
+  .hero {
+    min-height: 500px;
+    padding: 50px 50px 0 50px;
+  }
 
-    .title {
-        font-size: 4rem;
-        line-height: 4rem;
-    }
+  .title {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
 }
 @media (max-width: 600px) {
-    .hero {
-        min-height: 300px;
-        padding: 10px 10px 0 10px;
-    }
+  .hero {
+    min-height: 300px;
+    padding: 10px 10px 0 10px;
+  }
 
-    .title {
-        font-size: 3rem;
-        line-height: 3rem;
-    }
+  .title {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
 }

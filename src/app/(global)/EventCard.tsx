@@ -7,8 +7,8 @@ const EventCard = ({
   event, // The event being used to render the component data
   cardType, // The card variant that we want to render
 }: {
-  event: DBEvent,
-  cardType: CardType,
+  event: DBEvent;
+  cardType: CardType;
 }) => {
   // Evaluate the card type parameter
   switch (cardType) {

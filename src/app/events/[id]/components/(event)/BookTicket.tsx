@@ -17,8 +17,8 @@ const bookTicket = async (userID: string, eventID: number) => {
 };
 
 const BookTicketModal = ({
-  title,  // The name of the event currently being booked
-  userID, // The ID of the user currently signed in 
+  title, // The name of the event currently being booked
+  userID, // The ID of the user currently signed in
   eventID, // The ID of the event currently being booked
 }: {
   title: string;
@@ -26,7 +26,7 @@ const BookTicketModal = ({
   eventID: number;
 }) => {
   const router = useRouter();
-  
+
   return (
     <div id="book-ticket-modal" className="modal">
       <div className="modal-background"></div>
@@ -44,15 +44,14 @@ const BookTicketModal = ({
             <div className="control">
               <button
                 className=" button is-text has-text-danger modal-cancel"
-                onClick={async() => {
+                onClick={async () => {
                   // Wait for the Supabase client to book the ticket
                   await bookTicket(userID, eventID);
 
                   // Redirect to the dashboard and refresh to force a re-render
                   router.push("/dashboard");
                   router.refresh();
-                  } 
-                }
+                }}
               >
                 Book Ticket!
               </button>

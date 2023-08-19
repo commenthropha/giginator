@@ -15,7 +15,7 @@ const Dashboard = async () => {
 
   // Check if a current user is an organiser
   const isOrganiser = await isUserOrganiser();
-  
+
   // Retrieve all user events from the database
   const userEvents: DBEvent[] | null = await getUserEvents();
 
@@ -35,9 +35,15 @@ const Dashboard = async () => {
   return (
     <div>
       <Header title="Dashboard" />
-      <OrganisedEvents events={organisedEvents ? organisedEvents : []} isOrganiser={isOrganiser} />
+      <OrganisedEvents
+        events={organisedEvents ? organisedEvents : []}
+        isOrganiser={isOrganiser}
+      />
       <UserEvents events={userEvents ? userEvents : []} />
-      <OtherEvents events={otherEvents ? otherEvents : []} isOrganiser={isOrganiser} />
+      <OtherEvents
+        events={otherEvents ? otherEvents : []}
+        isOrganiser={isOrganiser}
+      />
     </div>
   );
 };

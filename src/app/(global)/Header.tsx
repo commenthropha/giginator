@@ -1,7 +1,7 @@
 const Header = ({
-  title // The text that we want the Header component to display
+  title, // The text that we want the Header component to display
 }: {
-  title: string
+  title: string;
 }) => {
   return (
     <div className="gradient">

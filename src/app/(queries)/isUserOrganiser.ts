@@ -22,7 +22,7 @@ const isUserOrganiser = async () => {
     .eq("id", session?.user.id)
     .single();
 
-  return (data?.organiser);
+  return data?.organiser;
 };
 
 export default isUserOrganiser;

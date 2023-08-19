@@ -76,7 +76,7 @@ const CancelEventModal = ({
                   if (userID != "e214ecbf-0428-4ac9-83fe-833119fecf61") {
                     // Wait for the Supabase client to delete the event
                     await cancelEvent(eventID);
-                    
+
                     // Redirect to the organisation page and refresh to force a re-render
                     router.push("/organisation");
                     router.refresh();

@@ -3,12 +3,12 @@
 import Column from "../Column";
 import BookTicketModal from "./BookTicket";
 
-const Event = ({ 
+const Event = ({
   event, // The event being used to render the component data
   userID, // The ID of the user currently signed in
-}: { 
-  event: DBEvent, 
-  userID: string,
+}: {
+  event: DBEvent;
+  userID: string;
 }) => {
   return (
     <div>
