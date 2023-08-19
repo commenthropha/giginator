@@ -45,11 +45,10 @@ However, this wasn't always suitable as sometimes a function would only have a s
 const myFunction = ({
     title, 
     id
-    }: {
+}: {
     title: string,
     id: number    
-    }
-    ) => {}
+}) => {}
 ```
 I found that this was a lot more readable while also providing a format that would work for all functions.
 
