@@ -4,16 +4,23 @@ import { Table, OrganisedEvents } from "./components";
 import { getOrganisedEvents, getSession, isUserOrganiser } from "../(queries)";
 
 const Organisation = async () => {
+  // Retrieve session data
   const session = await getSession();
+
+  // Check if a current user is an organiser
   const isOrganiser = await isUserOrganiser();
+
+  // Only get the organised events if the current user is an organiser
   const organisedEvents: DBEvent[] | null = isOrganiser
     ? await getOrganisedEvents()
     : null;
 
+  // If not currently logged in
   if (!session) {
     redirect("/");
   }
 
+  // If the current user is not an organiser
   if (!isOrganiser) {
     redirect("/404");
   }
