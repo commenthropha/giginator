@@ -3,8 +3,10 @@ import { getSession } from "./(queries)";
 import { Hero, About, Events } from "./components";
 
 const Home = async () => {
+  // Retrieve session data
   const session = await getSession();
 
+  // If currently logged in
   if (session) {
     redirect("/dashboard");
   }
