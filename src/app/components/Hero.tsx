@@ -7,7 +7,7 @@ const Hero = () => {
     <>
       <div className={`${styles.hero} gradient`}>
         <h1
-          className={`${styles.title} has-text-white has-text-weight-semibold has-text-white mt-6 p-6`}
+          className={`${styles.title} has-text-white has-text-centered has-text-weight-semibold has-text-white mt-6 p-6`}
         >
           Eventful Evenings <br></br>
           Made Easy
