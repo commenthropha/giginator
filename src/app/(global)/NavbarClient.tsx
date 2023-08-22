@@ -160,6 +160,12 @@ const Navbar = ({
     window.addEventListener("resize", () => setOpen(false));
   });
 
+  /* useEffect hook to facilitate closing the menu whenever the
+     window is scrolled */
+  useEffect(() => {
+    window.addEventListener("scroll", () => setOpen(false));
+  });
+
   // Allocate these variables as the function return values
   const { image, color, hamburger } = CalculateColors(isOpen);
 
