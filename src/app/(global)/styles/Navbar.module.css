@@ -21,8 +21,4 @@
   .navbar-start {
     display: none;
   }
-
-  .burger-menu {
-    display: flex;
-  }
 }
