@@ -9,7 +9,6 @@ import logo from "./logo.png";
 import logoDark from "./logo-dark.png";
 import styles from "./styles/Navbar.module.css";
 import Link from "next/link";
-import { isUserOrganiser } from "../(queries)";
 
 // Create a type Alias for each item in the Navbar
 type NavbarItem = {
