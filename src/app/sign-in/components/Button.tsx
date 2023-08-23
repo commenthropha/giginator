@@ -3,6 +3,9 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { AiFillGithub } from "react-icons/ai";
 
+/*
+ * Button refactored into separate component for client-side handling
+ */
 const Button = () => {
   const supabase = createClientComponentClient();
 
