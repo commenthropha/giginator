@@ -1,5 +1,8 @@
 import { Card } from "@/app/(global)";
 
+/*
+ * Displays booked events as card components
+ */
 const UserEvents = ({
   events, // Events booked by the user to be displayed
 }: {
