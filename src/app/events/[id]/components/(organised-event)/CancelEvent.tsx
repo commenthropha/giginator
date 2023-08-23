@@ -5,6 +5,9 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
+/*
+ * Query to be executed upon confirmation of the modal
+ */
 const cancelEvent = async (eventID: number) => {
   // Initialise Supabase client
   const supabase: SupabaseClient = createClientComponentClient();
@@ -15,6 +18,10 @@ const cancelEvent = async (eventID: number) => {
   });
 };
 
+/*
+ * Action to be executed if the user attempting to delete
+ * an event is the supplied organiser test account
+ */
 const testAccountAction = () => {
   // Retrieve the main text element from the DOM
   const element = document.getElementById("text");
@@ -29,6 +36,9 @@ const testAccountAction = () => {
     "You cannot delete events when logged in as the Organiser Test User.";
 };
 
+/*
+ * Modal to confirm the user's cancelling of the event
+ */
 const CancelEventModal = ({
   title, // The name of the event currently being booked
   userID, // The ID of the user currently signed in
