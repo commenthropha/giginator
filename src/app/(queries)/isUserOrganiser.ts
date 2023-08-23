@@ -5,6 +5,9 @@ import {
 import { getSession } from ".";
 import { cookies } from "next/headers";
 
+/*
+ * Checks Supabase to see if the current user is an organiser
+ */
 const isUserOrganiser = async () => {
   // Initialise Supabase client
   const cookieStore = cookies();
