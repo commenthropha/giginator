@@ -5,6 +5,9 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
+/*
+ * Query to be executed upon confirmation of the modal
+ */
 const cancelTicket = async (userID: string, eventID: number) => {
   // Initialise Supabase client
   const supabase: SupabaseClient = createClientComponentClient();
@@ -16,6 +19,9 @@ const cancelTicket = async (userID: string, eventID: number) => {
   });
 };
 
+/*
+ * Modal to confirm the user's cancelling of their ticket for the event
+ */
 const CancelTicketModal = ({
   title, // The name of the event currently being booked
   userID, // The ID of the user currently signed in
