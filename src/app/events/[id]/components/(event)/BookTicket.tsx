@@ -5,6 +5,9 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
+/*
+ * Query to be executed upon confirmation of the modal
+ */
 const bookTicket = async (userID: string, eventID: number) => {
   // Initialise Supabase client
   const supabase: SupabaseClient = createClientComponentClient();
@@ -16,6 +19,9 @@ const bookTicket = async (userID: string, eventID: number) => {
   });
 };
 
+/*
+ * Modal to confirm the user's booking of the event
+ */
 const BookTicketModal = ({
   title, // The name of the event currently being booked
   userID, // The ID of the user currently signed in
