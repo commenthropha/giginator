@@ -4,6 +4,9 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
+/*
+ * Retrieves data about the current session using local cookies
+ */
 const getSession = async () => {
   // Initialise Supabase client
   const cookieStore = cookies();
