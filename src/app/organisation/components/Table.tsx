@@ -1,9 +1,15 @@
-import { getOrganisedEvents } from "@/app/(queries)";
 import styles from "./styles/Table.module.css";
 import React from "react";
 import Link from "next/link";
 
-const Table = async ({ events }: { events: DBEvent[] }) => {
+/*
+ * Displays all organised events in a table
+ */
+const Table = async ({ 
+  events  // Events organised by the user to be displayed 
+}: { 
+  events: DBEvent[] 
+}) => {
   return (
     <div className="table-container">
       <table className={`table has-background-warning-light ${styles.table}`}>
