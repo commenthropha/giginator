@@ -4,6 +4,9 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { GrUserAdmin } from "react-icons/gr";
 
+/*
+ * Button refactored into separate component for client-side handling
+ */
 const OrganiserTestButton = () => {
   const supabase = createClientComponentClient();
   const router = useRouter();
