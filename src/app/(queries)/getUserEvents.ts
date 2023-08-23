@@ -5,6 +5,9 @@ import {
 import { getSession } from ".";
 import { cookies } from "next/headers";
 
+/*
+ * Retrieves events booked by the current user from Supabase
+ */
 const getUserEvents = async () => {
   // Initialise Supabase client
   const cookieStore = cookies();
