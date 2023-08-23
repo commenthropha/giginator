@@ -1,6 +1,9 @@
 import { Card } from "@/app/(global)";
 import Link from "next/link";
 
+/*
+ * Displays all non-booked and non-organised events as card components
+ */
 const OtherEvents = ({
   events, // Non-organised, non-booked events to be displayed
   isOrganiser, // Boolean value used to determine if the current user is an organiser
