@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+/*
+ * Section to display information about the website
+ */
 const About = () => {
   return (
     <div id="about">
