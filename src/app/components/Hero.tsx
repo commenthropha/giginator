@@ -2,6 +2,9 @@ import Image from "next/image";
 import HeroImage from "../hero.png";
 import styles from "./styles/Hero.module.css";
 
+/*
+ * Hero to be displayed on the index page
+ */
 const Hero = () => {
   return (
     <>
