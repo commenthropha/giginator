@@ -6,6 +6,9 @@ import {
   createServerComponentClient,
 } from "@supabase/auth-helpers-nextjs";
 
+/*
+ * Section to display a select number of events from the database
+ */
 const Events = async () => {
   // Wait for the supabase client to initialise
   const cookieStore = cookies();
