@@ -3,6 +3,9 @@
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
+/*
+ * Button refactored into separate component for client-side handling
+ */
 const SignOutButton = () => {
   const router = useRouter();
   const supabase = createClientComponentClient();
