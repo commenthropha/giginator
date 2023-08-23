@@ -4,6 +4,9 @@ import CancelTicketModal from "./CancelTicket";
 import ViewTicketModal from "./ViewTicket";
 import Column from "../Column";
 
+/*
+ * This is the page that will be displayed for an event booked by the user
+ */
 const UserEvent = ({
   event, // The event being used to render the component data
   userID, // The ID of the user currently signed in
