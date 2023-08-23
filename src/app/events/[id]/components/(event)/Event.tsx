@@ -3,6 +3,9 @@
 import Column from "../Column";
 import BookTicketModal from "./BookTicket";
 
+/*
+ * This is the page that will be displayed for a non-booked, non-organised event
+ */
 const Event = ({
   event, // The event being used to render the component data
   userID, // The ID of the user currently signed in
