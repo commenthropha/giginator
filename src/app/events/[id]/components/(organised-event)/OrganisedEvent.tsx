@@ -4,6 +4,9 @@ import React from "react";
 import Column from "../Column";
 import CancelEventModal from "./CancelEvent";
 
+/*
+ * This is the page that will be displayed for an event organised by the user
+ */
 const OrganisedEvent = ({
   event, // The event being used to render the component data
   userID, // The ID of the user currently signed in
