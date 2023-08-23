@@ -1,8 +1,10 @@
 import React from "react";
-import Link from "next/link";
 import styles from "./styles/Form.module.css";
 import { Button, OrganiserTestButton, UserTestButton } from ".";
 
+/*
+ * Form to provide user with different sign in choices
+ */
 const Form = () => {
   return (
     <div
