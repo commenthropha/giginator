@@ -1,5 +1,8 @@
 "use client";
 
+/*
+ * Modal to view the user's ticket for the event
+ */
 const ViewTicketModal = () => {
   return (
     <div id="view-ticket-modal" className="modal">
