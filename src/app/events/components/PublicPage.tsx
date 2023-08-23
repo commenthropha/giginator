@@ -3,6 +3,9 @@ import { Header, EventCard } from "@/app/(global)";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
+/*
+ * This is the page that will be displayed for a public user (not signed in)
+ */
 const PublicPage = async () => {
   // Initialise Supabase client
   const cookieStore = cookies();
