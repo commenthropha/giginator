@@ -2,7 +2,8 @@ import React from "react";
 import { getSession, isUserOrganiser } from "../(queries)";
 import { NavbarClient } from ".";
 
-/* Need this component to serve the Navbar,
+/* 
+ * Need this component to serve the Navbar,
  * since we require a parent component that
  * is a server component to use cookies properly
  */
