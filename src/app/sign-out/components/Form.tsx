@@ -4,6 +4,9 @@ import SignOutButton from "./SignOutButton";
 import CancelButton from "./CancelButton";
 import styles from "./styles/Form.module.css";
 
+/*
+ * Form to provide user with sign out confirmation
+ */
 const Form = () => {
   return (
     <div
