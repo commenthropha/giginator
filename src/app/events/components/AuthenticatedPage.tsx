@@ -2,6 +2,9 @@ import { getOtherEvents, getUserEvents } from "../../(queries)";
 import { Header } from "@/app/(global)";
 import EventCard from "../../(global)/EventCard";
 
+/*
+ * This is the page that will be displayed for a user who is signed in
+ */
 const AuthenticatedPage = async () => {
   // Retrieve all user events from the database
   const userEvents: DBEvent[] | null = await getUserEvents();
