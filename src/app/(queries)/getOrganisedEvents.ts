@@ -5,6 +5,9 @@ import {
 import { cookies } from "next/headers";
 import { getSession, isUserOrganiser } from ".";
 
+/*
+ * Retrieves events organised by the current user from Supabase
+ */
 const getOrganisedEvents = async () => {
   // Initialise Supabase client
   const cookieStore = cookies();
