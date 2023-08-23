@@ -25,6 +25,9 @@ type NavbarItems = {
   endItems: Array<NavbarItem>;
 };
 
+/* 
+ * Calculates data to display in the Navbar
+ */
 const NavbarData = (
   session: Session | null,
   isOrganiser: boolean
@@ -60,6 +63,9 @@ const NavbarData = (
   return { startItems, endItems };
 };
 
+/* 
+ * Renders the Navbar menu when toggled
+ */
 const BurgerMenu = ({
   toggled, // Determines the current state of the menu
   items, // The items to be displayed in the menu
@@ -84,6 +90,9 @@ const BurgerMenu = ({
   </>
 );
 
+/* 
+ * Renders the items at the start of the Navbar
+ */
 const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   // Get the current pathname (e.g. /sign-in, /dashboard)
   const pathname = usePathname();
@@ -106,6 +115,9 @@ const StartItems = ({ items }: { items: Array<NavbarItem> }) => {
   );
 };
 
+/* 
+ * Renders the items at the end of the Navbar
+ */
 const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
   <>
     {items.map((item: NavbarItem) => (
@@ -120,6 +132,9 @@ const EndItems = ({ items }: { items: Array<NavbarItem> }) => (
   </>
 );
 
+/* 
+ * Calculates colors for the Navbar to use
+ */
 const CalculateColors = (isOpen: boolean) => {
   // Initialise variables for allocation later
   let image, color, hamburger;
