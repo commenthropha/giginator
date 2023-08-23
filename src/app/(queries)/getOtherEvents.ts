@@ -5,9 +5,17 @@ import {
 import { getOrganisedEvents, getUserEvents } from ".";
 import { cookies } from "next/headers";
 
-/* Allows specification of a limit for the maximum number of
-   database entries to return; returns all of them if left undefined */
-const getOtherEvents = async (limit: number | null) => {
+/*
+ * Retrieves events not organised and not booked by the current user from Supabase
+ */
+const getOtherEvents = async (
+  
+  /* Allows specification of a limit for the maximum number of
+   * database entries to return; returns all of them if left undefined 
+   */
+  limit: number | null 
+  
+  ) => {
   // Initialise Supabase client
   const cookieStore = cookies();
   const supabase: SupabaseClient = createServerComponentClient({
