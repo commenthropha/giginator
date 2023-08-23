@@ -1,6 +1,13 @@
 import { EventCard } from "@/app/(global)";
 
-const OrganisedEvents = ({ events }: { events: DBEvent[] }) => {
+/*
+ * Displays all organised events as event card components
+ */
+const OrganisedEvents = ({ 
+  events  // Events organised by the user to be displayed
+}: { 
+  events: DBEvent[] 
+}) => {
   // If there are no events
   return events.length == 0 ? (
     <p className="mx-6 px-1 is-size-5 is-size-6-mobile">
