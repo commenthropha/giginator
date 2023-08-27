@@ -16,7 +16,7 @@ An event ticket website that faciliatates booking and organisation of events.
 3. [Bulma](https://bulma.io/)
 4. [Supabase](https://supabase.com/)
 
-### How To Run
+### Installation & Usage
 Visit the deployed website on [Vercel](https://event-ticket-site.vercel.app/)
 
 # My Development Experience
