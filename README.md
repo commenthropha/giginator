@@ -17,7 +17,7 @@ An event ticket website that faciliatates booking and organisation of events.
 4. [Supabase](https://supabase.com/)
 
 ### Installation & Usage
-Visit the deployed website on [Vercel](https://event-ticket-site.vercel.app/)
+Visit the deployed website on [Vercel](https://giginator.vercel.app/)
 
 # My Development Experience
 ## The Problem
