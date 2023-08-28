@@ -1,16 +1,21 @@
 .hero {
-  min-height: 700px;
+  min-height: 500px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 100px 100px 0 100px;
+  overflow: hidden;
+  justify-content: space-between;
+  padding: 100px 200px 100px 100px;
 }
 
 .title {
-  font-size: 5rem;
-  line-height: 5rem;
+    font-size: 5rem;
+    background: linear-gradient(90deg, rgba(247, 179, 152, 1) 0%, #FFE08A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 5rem;
 }
+
 
 @media (max-width: 1200px) {
 }

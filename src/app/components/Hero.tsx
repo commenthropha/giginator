@@ -1,6 +1,6 @@
-import Image from "next/image";
-import HeroImage from "../hero.png";
 import styles from "./styles/Hero.module.css";
+import Image from "next/image";
+import abstract from "../abstract.png"
 
 /*
  * Hero to be displayed on the index page
@@ -10,12 +10,12 @@ const Hero = () => {
     <>
       <div className={`${styles.hero} gradient`}>
         <h1
-          className={`${styles.title} has-text-white has-text-centered has-text-weight-semibold has-text-white mt-6 p-6`}
+          className={`${styles.title} has-text-weight-semibold has-text-white mt-6 p-6`}
         >
           Eventful Evenings <br></br>
           Made Easy
         </h1>
-        <Image src={HeroImage} alt="Hero" width={1000} height={1} />
+        <Image src = {abstract} height={500} alt = "abstract" />
       </div>
     </>
   );
