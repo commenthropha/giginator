@@ -20,7 +20,7 @@ const OrganiserTestButton = () => {
 
   return (
     <button
-      className="button is-medium is-warning is-small-mobile is-flex p-3 is-justify-content-space-between"
+      className="button is-warning is-flex p-3 is-justify-content-space-between"
       style={{ width: "275px" }}
       onClick={async () => {
         await handleSignIn();
@@ -29,7 +29,7 @@ const OrganiserTestButton = () => {
       }}
     >
       <GrUserAdmin />
-      <p style={{ fontSize: "1.125rem" }}>Organiser Test Account</p>
+      <p> Organiser Test Account</p>
     </button>
   );
 };

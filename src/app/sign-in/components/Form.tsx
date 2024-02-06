@@ -10,7 +10,7 @@ const Form = () => {
     <div
       className={`is-flex is-justify-content-space-between is-align-items-center is-flex-direction-column center gradient-box ${styles.formContainer}`}
     >
-      <h1 className="has-text-centered text-focus-in has-text-white title is-1 is-size-2-mobile center px-3">
+      <h1 className="has-text-centered text-focus-in has-text-white title is-2 is-size-3-mobile center px-3">
         Sign In
       </h1>
       <div className="has-text-centered field my-5">

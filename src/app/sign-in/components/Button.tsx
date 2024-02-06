@@ -19,7 +19,7 @@ const Button = () => {
   };
 
   return (
-    <button onClick={handleSignIn} className="button is-medium is-small-mobile is-flex p-3 is-justify-content-space-between" style={{width: "275px"}}>
+    <button onClick={handleSignIn} className="button is-flex p-3 is-justify-content-space-between" style={{width: "275px"}}>
       <AiFillGithub />
       <p className="ml-5">Sign in with GitHub</p>
     </button>
