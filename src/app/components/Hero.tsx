@@ -15,7 +15,7 @@ const Hero = () => {
           Eventful Evenings <br></br>
           Made Easy
         </h1>
-        <Image src = {abstract} height={500} alt = "abstract" />
+        <Image src = {abstract} height={300} alt = "abstract" />
       </div>
     </>
   );

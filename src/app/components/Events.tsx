@@ -21,7 +21,7 @@ const Events = async () => {
 
   return (
     <>
-      <h1 className="title is-1 is-size-2-mobile has-text-centered has-text-weight-semibold gradient-text p-6">
+      <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold gradient-text p-6">
         See a selection of our events below:
       </h1>
       <div className="columns m-4">
@@ -29,7 +29,7 @@ const Events = async () => {
           <Card key={event.id} event={event} text={false} />
         ))}
       </div>
-      <h1 className="title is-3 is-size-4-mobile has-text-centered has-text-weight-semibold p-6">
+      <h1 className="title is-4 is-size-5-mobile has-text-centered has-text-weight-semibold p-6">
         You can see all of our events{" "}
         <Link href="/events" className="gradient-text">
           here
