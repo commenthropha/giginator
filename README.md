@@ -16,9 +16,6 @@ An event ticket website that faciliatates booking and organisation of events.
 3. [Bulma](https://bulma.io/)
 4. [Supabase](https://supabase.com/)
 
-### Installation & Usage
-Visit the deployed website on [Vercel](https://giginator.vercel.app/)
-
 # My Development Experience
 ## The Problem
 This was a full-stack project that was initially created using Flask, MySQL and SQLAlchemy for one of my first year modules at university. I decided to migrate the application to a modern stack to get experience with, both, NextJS 13 and Supabase without having to worry about the design process. It's for that reason that this application uses Bulma as my CSS Framework of choice as opposed to Tailwind CSS, since Bulma is available as a CDN and my original project did not have access to Node package manager. Although Bulma is a perfectly capable framework for building functional UIs quickly, I still prefer Tailwind CSS for it's comparatively greater modularity when it comes to helper classes - particuarly when it comes to element sizing.
